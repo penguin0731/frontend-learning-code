@@ -1,0 +1,22 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^3.4.0",
+    "express": "^4.17.1",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.8.3",
+    "vue-server-renderer": "^2.6.11",
+    "vue-style-loader": "^4.1.2",
+    "webpack": "^4.41.5"
+  },
+  "scripts": {
+    "build:server": "webpack --config ./webpack/webpack.server.js -w",
+    "build:client": "webpack --config ./webpack/webpack.server.js -w"
+  }
+}

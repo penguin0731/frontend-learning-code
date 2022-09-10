@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生表格</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+
+<body>
+    <table id="tabStudents"></table>
+    <script src="./layui/layui.all.js"></script>
+    <script>
+        var table = layui.table; //获取layui的table模块对象
+        table.render({ //根据配置展示一个表格
+            elem: '#tabStudents', //对应页面中的哪个table元素
+            height: 500, //配置高度
+            url: '/api/student', //ajax请求的地址
+            page: true, //是否允许分页
+            request: { //重新配置请求时发送到服务器的参数
+                pageName: 'page', //页码的参数名称，默认：page
+                limitName: 'pageSize' //每页数据量的参数名，默认：limit
+            },
+            parseData: function(res) { //手动解析服务器返回结果
+                //res服务器返回结果
+                return {
+                    "code": 0, //错误码，没有错误为0
+                    "msg": "", //错误消息，没有的话为空字符串
+                    "count": res.total, //数据总量
+                    "data": res.datas //数据列表数组
+                };
+            },
+            cols: [
+                [ //配置有哪些列
+                    //field对应的数据字段，title表示列标题
+                    {
+                        field: 'name',
+                        title: '姓名'
+                    }, //每个对象对应一列
+                    {
+                        field: "sex",
+                        title: "性别",
+                        templet: function(d) {
+                            //模板函数，如果配置了该函数，则会调用该函数，将每一行的数据传给参数d，将函数的返回结果作为这一列的显示
+                            return d.sex === 1 ? "男" : "女"
+                        }
+                    },
+                    {
+                        field: "birth",
+                        title: "出生日期",
+                        templet: function(d){
+                            var date = new Date(d.birth) 
+                            return date.toLocaleDateString();
+                        }
+                    },
+                    {
+                        field: "phone",
+                        title: "电话"
+                    },
+                    {
+                        field: "address",
+                        title: "地址"
+                    }
+                ]
+            ]
+        })
+    </script>
+</body>
+
+</html>

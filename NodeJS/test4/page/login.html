@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./login.js"></script>
+    <script>
+        function login() {
+            var stuNum = document.getElementById('stuNum').value;
+            var pwd = document.getElementById('password').value;
+            var params = 'stuNum=' + stuNum + '&password=' + pwd;
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("POST", "/login", true);
+            xmlHttp.send(params);
+
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    console.log(xmlHttp.responseText);
+                    // console.log(typeof xmlHttp.responseText);
+                    if(xmlHttp.responseText == 'OK') {
+                        alert('成功');
+                        location.href = './main.html';  //登录成功后跳转页面
+                    }else {
+                        alert('失败');
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form method="post" action="/login">
+        <input type="text" id="stuNum" name="stuNum" placeholder="账号">
+        <input type="password" id="password" name="password" placeholder="密码">
+        <input type="submit" value="提交" >
+    </form>
+</body>
+
+</html>

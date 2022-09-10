@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function submitFile() {
+            var file = document.getElementById('file').files[0];
+            var name = document.getElementById('name').value;
+            var form = new FormData();
+            form.append('file', file);
+            form.append('name', name);
+            var xhr = new XMLHttpRequest();
+            xhr.open('post', '/upload', true);
+            xhr.onload = function () {
+                alert('上传完成');
+            }
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    var result = xhr.responseText;
+                    console.log(result);
+                    var img = document.getElementById('img');
+                    var download = document.getElementById('download');
+                    img.src = '/getImg?path=' + JSON.parse(result).path;
+                    download.href = '/getImg?path=' + JSON.parse(result).path;
+                }
+            }
+            xhr.send(form);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="name" placeholder="请输入名字">
+    <input type="file" id="file">
+    <button onclick="submitFile()">提交</button>
+    <img src="#" id="img">
+    <a href="#" id="download" download="head.png">下载</a>
+</body>
+</html>
