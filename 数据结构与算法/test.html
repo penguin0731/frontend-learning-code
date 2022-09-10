@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Node(value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+        function LRD(root) {
+            if (!root) return;
+            LRD(root.left);
+            LRD(root.right);
+            console.log(root.value);
+        }
+        var DLR = 'abcdef';
+        var LDR = 'cbdaef';
+        function getTree(dlr, ldr) {
+            if (dlr.length != ldr.length) throw Error('无效的遍历值');
+            if (dlr.length == 0 || ldr.length == 0) return;
+            dlr = dlr.split('');
+            ldr = ldr.split('');
+            var rootValue = dlr[0];
+            var root = new Node(rootValue);
+            var index = ldr.indexOf(rootValue);
+
+            var leftLDR = ldr.slice(0, index).join('');
+            var leftDLR = dlr.slice(1, leftLDR.length + 1).join('');
+            root.left = getTree(leftDLR, leftLDR);
+
+            var rightLDR = ldr.slice(index + 1).join('');
+            var rightDLR = dlr.slice(leftLDR.length + 1).join('');
+            root.right = getTree(rightDLR, rightLDR);
+            return root;
+        }
+        LRD(getTree(DLR, LDR));
+
+        
+        
+        
+    </script>
+</body>
+
+</html>
