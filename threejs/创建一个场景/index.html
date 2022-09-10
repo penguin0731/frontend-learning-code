@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first three.js app</title>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+    <script src="../three.js"></script>
+    <script>
+        // 创建场景
+        const scene = new THREE.Scene();
+        // 创建透视相机
+        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        // 创建渲染器
+        const renderer = new THREE.WebGLRenderer();
+        // 设置渲染器尺寸为浏览器窗口大小
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        // 将渲染器Dom插入到document中
+        document.body.appendChild( renderer.domElement );
+        // 创建几何体
+        const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        // 绘制几何体的材质
+        const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+        const cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+        // 调整相机的层级
+        camera.position.z = 8; // 值越大，相机离得越远，拍摄的物体就越小
+        // 开始渲染
+        renderer.render(scene, camera);
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.02;
+            cube.rotation.y += 0.02;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

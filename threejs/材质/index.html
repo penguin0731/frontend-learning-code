@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first three.js app</title>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+    <script src="../three.js"></script>
+    <script>
+        // 创建场景
+        const scene = new THREE.Scene();
+        // 创建正交相机
+        const camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 1000);
+        camera.position.z = 10;
+        // 创建渲染器
+        const renderer = new THREE.WebGLRenderer();
+        // 设置渲染器尺寸为浏览器窗口大小，如果存在canvas，会覆盖canvas的尺寸大小，所以这行代码不必添加
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.localClippingEnabled = true;
+        // 将canvas插入到document中，如果存在canvas，会将它剪切重新插入，所以这行代码不必添加
+        document.body.appendChild( renderer.domElement );
+
+        const geometry1 = new THREE.BufferGeometry();
+        const vertices1 = new Float32Array( [
+            -100, 0,  0,
+            100, 0,  0,
+            0,  100,  0,
+
+            // 0,  0,  0,
+            // 100,  0,  0,
+            // 0, 200,  0
+        ] );
+        geometry1.setAttribute('position', new THREE.BufferAttribute(vertices1, 3));
+        const material1 = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+        const mesh1 = new THREE.Mesh( geometry1, material1 );
+        scene.add( mesh1 );
+        renderer.render(scene, camera);
+
+        const geometry2 = new THREE.BufferGeometry();
+        const vertices2 = new Float32Array( [
+            0,  0,  0,
+            100,  0,  0,
+            0, 200,  0
+        ] );
+        geometry2.setAttribute('position', new THREE.BufferAttribute(vertices2, 3));
+        const material2 = new THREE.MeshBasicMaterial({
+            color: 0x0000ff, 
+            opacity: 0.5, 
+            transparent: true,
+            alphaTest: 0.2, // 透明度低于alphaTest时，不会渲染
+            clipIntersection: true,
+            // 裁剪的平面
+            clippingPlanes: [
+                new THREE.Plane(new THREE.Vector3( 0, 1, 0 ), -50)
+            ]
+        });
+        const mesh2 = new THREE.Mesh( geometry2, material2 );
+        scene.add( mesh2 );
+        renderer.render(scene, camera);
+    </script>
+</body>
+</html>

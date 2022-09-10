@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first three.js app</title>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+    <script src="../three.js"></script>
+    <script>
+        // 创建场景
+        const scene = new THREE.Scene();
+        // 创建正交相机
+        const camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 1000);
+        camera.position.z = 200;
+        // 创建渲染器
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.localClippingEnabled = true;
+        document.body.appendChild( renderer.domElement );
+        const params = {
+            clipIntersection: true,
+            planeConstant: 0,
+            showHelpers: false
+        };
+        const clipPlanes = [
+            new THREE.Plane( new THREE.Vector3( -1, 0, 0 ), 0 ), // 垂直x轴裁切，保留x负半轴
+            new THREE.Plane( new THREE.Vector3( 0, -1, 0 ), 0 ), // 垂直y轴裁切，保留y负半轴
+            new THREE.Plane( new THREE.Vector3( 0, 0, -1 ), 0 ), // 垂直z轴裁切，保留z负半轴
+        ];
+
+        const light = new THREE.AmbientLight( 0xff0000 ); // 什么颜色光就反射什么颜色，只有白光能反射所有颜色
+        scene.add( light );
+
+        // 定义一个组
+        const group = new THREE.Group();
+        function init() {
+            for ( let i = 1; i <= 15; i++ ) {
+                const geometry = new THREE.SphereGeometry( i * 10, 32, 32 );
+                const material = new THREE.MeshLambertMaterial({
+                    color: new THREE.Color(Math.random(), Math.random(), 0.5),
+                    side: THREE.DoubleSide,
+                    clippingPlanes: clipPlanes,
+                    clipIntersection: params.clipIntersection
+                });
+                // 把所有的几何体添加到组里，方便统一控制
+                group.add( new THREE.Mesh( geometry, material ) );
+            }
+            scene.add( group );
+        }
+
+        let deg = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            // 旋转组的话，裁切面不会跟着移动，因此需要旋转相机
+            // group.rotation.y += 0.05;
+            deg += 1;
+            camera.lookAt(0, 0, 0);
+            camera.position.set(200 * Math.cos(deg * Math.PI / 180), 150, 200 * Math.sin(deg * Math.PI / 180));
+            renderer.render(scene, camera);
+        }
+        init();
+        renderer.render( scene, camera );
+        animate();
+
+    </script>
+</body>
+</html>

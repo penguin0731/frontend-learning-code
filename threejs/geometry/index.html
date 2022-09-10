@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first three.js app</title>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body>
+    <script src="../three.js"></script>
+    <script>
+        // 创建场景
+        const scene = new THREE.Scene();
+        // 创建正交相机
+        const camera = new THREE.OrthographicCamera(window.innerWidth / -2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / -2, 0.1, 1000);
+        // 创建渲染器
+        const renderer = new THREE.WebGLRenderer();
+        // 设置渲染器尺寸为浏览器窗口大小，如果存在canvas，会覆盖canvas的尺寸大小，所以这行代码不必添加
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        // 将canvas插入到document中，如果存在canvas，会将它剪切重新插入，所以这行代码不必添加
+        document.body.appendChild( renderer.domElement );
+        // 创建几何体
+        const geometry = new THREE.BufferGeometry();
+        // 创建一个简单的矩形. 在这里我们左上和右下顶点被复制了两次。
+        // 因为在两个三角面片里，这两个顶点都需要被用到。
+        const vertices = new Float32Array([
+            -100, -100,  0,
+            100, -100,  0,
+            100,  100,  0,
+
+            100,  100,  0,
+            -100,  100,  0,
+            -100, -100,  0
+        ]);
+        geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+        console.log(geometry)
+        // 绘制几何体的材质
+        const material = new THREE.MeshBasicMaterial( { color: 0x00ff00, side: THREE.DoubleSide } );
+        const cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+        // 调整相机的层级
+        camera.position.z = 100;
+        // 开始渲染
+        renderer.render(scene, camera);
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            // cube.rotation.x += 0.02;
+            cube.rotation.y += 0.02;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
