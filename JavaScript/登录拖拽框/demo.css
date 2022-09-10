@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#btn{
+    display: block;
+    width: 80px;
+    height: 40px;
+    background: #3b7ae3;
+    margin: 0 auto;
+    cursor: pointer;
+    border-style: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+#mask{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.75;
+    filter: alpha(opacity=75); /*兼容IE*/
+    z-index: 999;
+}
+
+#login{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 400px;
+    height: auto;
+    border: 1px solid #d5d5d5;
+    z-index: 1000;
+}
+
+#title{
+    position: relative;
+    background: #f7f7f7;
+    cursor: move;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #333;
+    padding-left: 30px;
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #ccc;
+}
+
+.content{
+    background: #fff;
+    padding: 15px 20px;
+}
+
+.user,.password{
+    margin-bottom: 15px;
+}
+
+.pt{
+    width: 343px;
+    height: 38px;
+    padding-left: 15px;
+    border: 1px solid #ddd;
+    transition: .3s;
+    font-size: 14px;
+    color: #666;
+    border-radius: 5px;
+}
+
+.sm{
+    width: 360px;
+    height: 48px;
+    line-height: 48px;
+    border: 1x solid #666;
+    font-size: 16px;
+    background: #3b7ae3;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}

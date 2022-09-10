@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body{
+    background-color: #f6f6f8;
+    font-size: 13px;
+}
+
+.search{
+    width: 250px;
+    height: 44px;
+    background-color: white;
+    margin: 100px auto;
+}
+
+.citySelect{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.citySelect span {
+    display: block;
+    width: 60px;
+    height: 44px;
+    line-height:44px;
+    padding-left: 18px;
+    font-weight: 400;
+    color: #61687c;
+}
+
+.citySelect i{
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url(imgs/icons.png) 0 -2044px no-repeat;
+    top: 18px;
+    left: 75px;
+}
+
+.citySelect i::after{
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #f2f2f5;
+    width: 1px;
+    height: 26px;
+    top: -8px;
+    right: -5px;
+}
+
+.dragDown{
+    display: none;
+}
+
+.dragDown div{
+    width: 125px;
+    height: 300px;
+    float: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dragDown div ul{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow: scroll; 
+}
+
+.dragDown div ul::-webkit-scrollbar{
+    width: 4px;
+    height: 0;
+    /* background-color:  */
+}
+
+.dragDown div ul::-webkit-scrollbar-thumb{
+    border-radius: 2px;
+    background-color: #d1d4db;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.dragDown div ul li{
+    width: 105px;
+    height: 50px;
+    padding-left: 20px;
+    line-height: 50px;
+    color: #9fa3b0;
+    cursor: pointer;
+}
+
+.dragDown div ul li:hover{
+    background-color: #f1f3f6;
+}
+
+.dragDown .city ul{
+    background-color: #f6f6f8;
+
+}

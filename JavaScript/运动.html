@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* div{
+            width:200px;
+            height: 200px;
+            border-radius: 100%;
+            background-color: aqua;
+            margin: 100px auto;
+            position: relative;
+        }
+        div::before{
+            content: "snowy";
+            display: block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-left: 50px;
+            margin-top: -50px;
+        }
+        div::after{
+            content: "";
+            display: inline-block;
+            width: 200px;
+            height: 20px;
+            border-radius: 100%;
+            box-shadow: 0px 230px 30px #000;
+        } */
+
+        /* div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: red;
+        }
+        span {
+            width: 1px;
+            height: 100px;
+            position: absolute;
+            left: 400px;
+            top: 0;
+            background-color: black;
+        } */
+
+
+        /* ul {
+            width: 800px;
+            height: 100px;
+            position: relative;
+            margin: 100px auto;
+            list-style: none;
+        }
+
+        ul>li {
+            float: left;
+            width: 198px;
+            height: 98px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 98px;
+            background-color: orange;
+        }
+
+        ul .bg {
+            background-color: deeppink;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.4;
+        } */
+
+        /* div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 0;
+            left: 0;
+            background-color: red;
+        } */
+
+        /* div{
+            margin: 50px auto;
+            width: 100px;
+            height: 10px;
+            transform: rotate(180deg);
+        } */
+
+        div{
+            position: absolute;
+            top: 0;
+            left: 800px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        span{
+            position: absolute;
+            height: 100px;
+            border-left: 1px solid black;
+            top: 0;
+            left: 300px;
+            /* margin-left: 400px; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- <div class="wrapper" id="ow">
+        <span class=" demo   active   index  "></span>
+        <p class="    index  demo"></p>
+        <div class=" demodemo    "></div>
+        <div class="  demo   index   "></div>
+        <span class="active    demo   "></span>
+    </div> -->
+
+    <!-- <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li class="bg"></li>
+    </ul> -->
+
+    <div></div>
+    <span></span>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        var timer = null;
+        div.onclick = function() {
+            move(this, 300);
+        }
+        function move(dom, target) {
+            clearInterval(dom.timer);
+            var iSpeed = null;
+            dom.timer = setInterval(function () {
+                iSpeed = (target - dom.offsetLeft) / 7;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                if(dom.offsetLeft == target) {
+                    clearInterval(dom.timer);
+                    console.log('over');
+                } else {
+                    dom.style.left = dom.offsetLeft + iSpeed + 'px'; 
+                }
+            }, 30);
+        }
+        // function move(dom, target) {
+        //     // s = v*t
+        //     clearInterval(timer);
+        //     var iSpeed = target - dom.offsetLeft > 0 ? 7 : -7; //速率 v
+        //     timer = setInterval(function () {
+        //         if(Math.abs(target - dom.offsetLeft) < Math.abs(iSpeed)) {
+        //             clearInterval(timer);
+        //             dom.style.left = target + 'px';
+        //         } else {
+        //             dom.style.left = dom.offsetLeft + iSpeed + 'px';
+        //         }
+        //         console.log(iSpeed);
+        //     }, 30); 
+        // }
+
+
+
+        // Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = function (_className) {
+        //     // _classname
+        //     // 获取所有标签
+        //     var allDomArr = this.getElementsByTagName('*');
+        //     var _classNameArr = trimSpace(_className).trim().split(' ');
+        //     var lastDomArr = [];
+        //     function trimSpace(strClass) {
+        //         var reg = /\s+/g;
+        //         return strClass.replace(reg, ' ');
+        //     }
+        //     String.prototype.trim = function () {
+        //         var reg = /(^\s|\s$)+/g;
+        //         return this.replace(reg, '');
+        //     }
+        //     for (var i = 0; i < allDomArr.length; i ++) {
+        //         var lastStrClass = trimSpace(allDomArr[i].className).trim();
+        //         var classArr = lastStrClass.split(' ');
+        //         var count = 0;
+        //         for(var j = 0; j < _classNameArr.length; j ++) {
+        //             var temp = _classNameArr[j];
+        //             for(var k = 0; k < classArr.length; k ++) {
+        //                 if(temp == classArr[k]) {
+        //                     count ++;
+        //                     break;
+        //                 }
+        //             }
+        //         }
+        //         if(count == _classNameArr.length) {
+        //             lastDomArr.push(allDomArr[i]);
+        //         }
+        //     }
+        //     return lastDomArr;
+        // }
+        // var ow = document.getElementById('ow');
+        // console.log(ow.getElementsByClassName('  demo   index  '));
+
+
+        // function jc(n) {
+        //     return n == 1 ? 1 : (n < 1 ? '1以下没有阶乘' : n * jc(n-1)) ;
+        // }
+
+        // Object.prototype.deepClone = function (origin, target) {
+        //     var target = target || {};
+        //     var toStr = Object.prototype.toString;
+        //     var arrStr = "object Array";
+        //     for(var prop in origin) {
+        //         if(origin.hasOwnProperty(prop)) {
+        //             if(origin[prop] !== null && typeof(origin[prop]) == 'object') {
+        //                 target[prop] = toStr.call(prop) == arrStr ? [] : {};
+        //                 return deepClone(origin[prop], target[prop]);
+        //             }else{
+        //                 target[prop] = origin[prop];
+        //             }
+        //         }
+        //     }
+        //     return target;
+        // }
+
+
+        // function jc(n){
+        //     return (n==0 || n==1) ? 1 : n*jc(n-1);
+        // }
+
+        // function memorize(fn) {
+        //     var cache = {};
+        //     return function () {
+        //         var key = Array.prototype.join.call(arguments);  //唯一标识
+        //         console.log(arguments);
+        //         console.log(key);
+        //         if(cache[key]) {
+        //             console.log(cache);
+        //             return cache[key];
+        //         }else {
+        //             cache[key] = fn.apply(this, arguments);
+        //             console.log(cache);
+        //             return cache[key];
+        //         }
+        //     }
+        // }
+        // var newFn = memorize(jc);
+        // // console.time('no memory');
+        // // console.log(jc(10));
+        // // console.timeEnd('no memory');
+
+        // console.time('memory1');
+        // console.log(newFn(5));
+        // console.timeEnd('memory1');
+
+        // // console.time('memory2');
+        // // console.log(newFn(10));
+        // // console.timeEnd('memory2');
+
+        // var liArray = document.getElementsByTagName('li');
+        // var bg = liArray[liArray.length - 1]
+        // for (var i = 0; i < liArray.length - 1; i++) {
+        //     liArray[i].onmouseenter = function () {
+        //         move(bg, this.offsetLeft);
+        //     }
+        // }
+
+        // function move(dom, target) {
+        //     clearInterval(dom.timer);
+        //     var iSpeed = 0,     //速度v
+        //         a = 5,          //加速度a
+        //         u = 0.8;        //摩擦力u
+        //     dom.timer = setInterval(function () {
+        //         a = (target - dom.offsetLeft) / 5;
+        //         iSpeed += a;
+        //         iSpeed *= u;
+        //         // console.log('速度:' + iSpeed + ',加速度:' + a);
+        //         if (Math.abs(iSpeed) < 1 && Math.abs(target - dom.offsetLeft) < 1) {
+        //             clearInterval(dom.timer);
+        //             dom.style.left = target + 'px';
+        //         } else {
+        //             dom.style.left = dom.offsetLeft + iSpeed + 'px';
+        //         }
+        //     }, 30);
+        // }
+
+        // var div = document.getElementsByTagName('div')[0];
+        
+        // function gravity(dom, iSpeedX, iSpeedY) {
+        //     clearInterval(dom.timer);
+        //     var g = 3;          //重力加速度
+        //     var u = 0.8         //能量损失
+        //     dom.timer = setInterval(function () {
+        //         iSpeedY += g;
+        //         var newLeft = dom.offsetLeft + iSpeedX;
+        //         var newTop = dom.offsetTop + iSpeedY;
+        //         //碰到浏览器窗口右部时
+        //         if (newLeft >= document.documentElement.clientWidth - dom.clientWidth) {
+        //             iSpeedX *= -1;   //改变方向
+        //             iSpeedX *= u;  //横向能量损失
+        //             iSpeedY *= u;  //纵向能量损失
+        //             newLeft = document.documentElement.clientWidth - dom.clientWidth;
+        //         }
+        //         //碰到浏览器窗口左部时
+        //         if (newLeft <= 0) {
+        //             iSpeedX *= -1;   //改变方向
+        //             iSpeedX *= u;  //横向能量损失
+        //             iSpeedY *= u;  //纵向能量损失
+        //             newLeft = 0;
+        //         }
+        //         //碰到浏览器窗口底部时
+        //         if (newTop >= document.documentElement.clientHeight - dom.clientHeight) {
+        //             iSpeedY *= -1;   //改变方向
+        //             iSpeedX *= u;  //横向能量损失
+        //             iSpeedY *= u;  //纵向能量损失
+        //             newTop = document.documentElement.clientHeight - dom.clientHeight;
+        //         }
+        //         //碰到浏览器窗口顶部时
+        //         if (newTop <= 0) {
+        //             iSpeedY *= -1;   //改变方向
+        //             iSpeedX *= u;  //横向能量损失
+        //             iSpeedY *= u;  //纵向能量损失
+        //             newTop = 0;
+        //         }
+
+        //         if(Math.abs(iSpeedX) < 1) {
+        //             iSpeedX = 0;
+        //         }
+        //         if(Math.abs(iSpeedY) < 1) {
+        //             iSpeedY = 0;
+        //         }
+        //         if(iSpeedX == 0 && iSpeedY == 0 && newTop == document.documentElement.clientHeight - dom.clientHeight) {
+        //             clearInterval(dom.timer);
+        //             console.log('over');
+        //         }else {
+        //             dom.style.left = newLeft + 'px';
+        //             dom.style.top = newTop + 'px';
+        //         }
+        //     }, 30);
+        // }
+
+        // function drag(elem) {
+        //     var lastX = 0, lastY = 0;
+        //     var disX, disY, iSpeedX, iSpeedY, self;
+        //     elem.onmousedown = function(e) {
+        //         clearInterval(this.timer);
+        //         disX = e.clientX - this.offsetLeft;
+        //         disY = e.clientY - this.offsetTop;
+        //         self = this;
+        //         document.onmousemove = function(e) {
+        //         var event = event || e;
+        //         var newLeft = event.clientX - disX;
+        //         var newTop = event.clientY - disY;
+        //         iSpeedX = newLeft - lastX;
+        //         iSpeedY = newTop - lastY;
+        //         lastX = newLeft;
+        //         lastY = newTop;
+                
+        //         self.style.left = newLeft + 'px';
+        //         self.style.top = newTop + 'px';
+        //         }
+        //         elem.onmouseup = function(e) {
+        //             document.onmousemove = null;
+        //             gravity(self, iSpeedX, iSpeedY);
+        //         }
+        //     }
+        // }
+        // drag(div);
+
+
+
+    </script>
+</body>
+
+</html>

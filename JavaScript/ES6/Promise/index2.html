@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script src="./MyPromise5.js"></script>
+    <script>
+        const pro = new MyPromise((resolve, reject) => {
+            setTimeout(() => {
+                Math.random() < 0.5 ? resolve('随机数小于0.5') : reject('随机数大于0.5');
+            }, 1000);
+        });
+        // const pro2 = pro.then(res => {
+        //     console.log(res);
+        // }, err => {
+        //     console.log(err);
+        // });
+        const pro2 = pro
+            .then(res => {
+                return new MyPromise((resolve, reject) => {
+                    console.log(res);
+                    resolve(res);
+                });
+            }, err => {
+                return new MyPromise((resolve, reject) => {
+                    console.log(err);
+                    reject(err);
+                });
+            })
+            .then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            })
+
+        // const prom = [];
+        // for (let i = 0; i < 10; i++) {
+        //     prom.push(new MyPromise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log(i, '完成了')
+        //                 resolve(i)
+        //             // if(Math.random() > 0.5) {
+        //             //     console.log(i, '完成了')
+        //             //     resolve(i)
+        //             // }else {
+        //             //     console.log(i, '失败了');
+        //             //     reject(i)
+        //             // }
+        //         }, (Math.random() * (5000 - 1000)) + 1000);
+        //     }))
+        // }
+        // const pro = MyPromise.all(prom);
+        // pro.then(res => {
+        //     console.log('全部成功了', res);
+        // }, err => {
+        //     console.log(`${err}失败了`);
+        // });
+
+        // const pro = MyPromise.race(prom);
+        // pro.then(res => {
+        //     console.log(`${res}成功了`);
+        // }, err => {
+        //     console.log(`${err}失败了`);
+        // })
+
+    </script>
+</body>
+
+</html>

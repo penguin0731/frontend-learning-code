@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper-top">
+            <input id="search" type="text">
+            <span class="btn" sex='m'>Male</span>
+            <span class="btn" sex='f'>Female</span>
+            <span class="btn active" sex='a'>All</span>
+            <input id="low" type="text">&nbsp;-&nbsp;<input id="high" type="text">
+        </div>
+        <div class="content">
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./tools/debounce.js"></script>
+    <script src="./lastFilterArr/filterArrByText.js"></script>
+    <script src="./lastFilterArr/filterArrBySex.js"></script>
+    <script src="./lastFilterArr/filterArrByAge.js"></script>
+    <script src="./createStore.js"></script>
+    <script src="./combineFilter.js"></script>
+    <script src="./demo.js"></script>
+    <script>
+        // 数据可视化
+        // [{},{},{}]
+        // var personArr = [
+        //     {name: '张三', des: '颈椎不好', img:'./img/1.jpg', sex: 'm', age: 25},
+        //     {name: '李四', des: '肚子饿了', img:'./img/2.jpg', sex: 'f', age: 23},
+        //     {name: '王五', des: '你好啊,我是王五', img:'./img/3.jpg', sex: 'm', age: 18},
+        //     {name: '赵六', des: 'emmmmmmmmmmmm', img:'./img/4.jpg', sex: 'm', age: 20},
+        //     {name: '刘七', des: '我喜欢唱，跳，rap', img:'./img/5.jpg', sex: 'f', age: 30}
+        // ];
+
+
+    
+        // // forEach 遍历 
+        // // 第一个参数（必填）: function(elem,index,self)
+        // // 第二个参数（选填）: object (第一个参数function中this的指向)
+        // personArr.forEach(function(elem, index, self){
+        //     console.log(elem, index, self, this);
+        // }, {name: 'cxj'});
+        // // 封装forEach
+        // Array.prototype.myForEach = function(func) {
+        //     var _arr = this, len = _arr.length, param2 = arguments[1] || window;
+        //     for(var i = 0; i < len; i++) {
+        //         func.apply(param2, [_arr[i], i, _arr]);
+        //     }
+        // }
+        // personArr.myForEach(function(elem, index, self){
+        //     console.log(elem, index, self, this);
+        // }, {name:'cxj'});
+
+
+
+        // // filter 过滤   (在原有数组上改变数据,最好是克隆一个新的数组)
+        // // 第一个参数（必填）: function(elem,index,self)
+        // // 第二个参数（选填）: object (第一个参数function中this的指向)
+        // // 返回false时,将元素过滤
+        // var newArr = personArr.filter(function(elem, index, self){
+        //     console.log(elem, index, self, this);
+        //     // 过滤女生
+        //     // if(elem.sex == 'm') {
+        //     //     return true;
+        //     // }else{
+        //     //     return false;
+        //     // }
+        //     return elem.sex == 'm';
+        // }, {name: 'cxj'});
+        // // 封装filter
+        // Array.prototype.myFilter = function(func) {
+        //     var _arr = this, len = _arr.length, param2 = arguments[1] || window, newArr = [];
+        //     for(var i = 0; i < len; i++) {
+        //         //返回false,将元素过滤
+        //         //返回true,将元素加入新数组
+        //         func.apply(param2, [_arr[i], i, _arr])? newArr.push(deepClone([], _arr[i])) : '';
+        //     }
+        //     return newArr;
+        // }
+        // var newArr = personArr.myFilter(function(elem, index, self){
+        //     console.log(elem, index, self, this);
+        //     return elem.sex == 'm';            
+        // }, {name:'cxj'});
+
+
+
+        // // map 映射
+        // // 返回一个数组 (在原有数组上改变数据,最好是克隆一个新的数组)
+        // var newArr = personArr.map(function(elem, index, self){
+        //     elem.name += 10;
+        //     return elem;
+        // },{name:'cxj'});
+        // Array.prototype.myMap = function(func) {
+        //     var _arr = this, len = _arr.length, param2 = arguments[1] || window, newArr = [];
+        //     for(var i = 0; i < len; i++) {
+        //         newArr.push( deepClone( func.apply(param2, [_arr[i], i, _arr]) ) );
+        //     }
+        //     return newArr;
+        // }
+        // var newArr = personArr.myMap(function(elem, index, self){
+        //     elem.name += 10;
+        //     return elem;
+        // },{name:'cxj'});        
+
+
+
+        // // every 只要有一个元素不符合条件,就停止遍历,返回false
+        // var flag = personArr.every(function(elem, index, self){
+        //     return elem.age > 20;
+        // }, {name:'cxj'});
+        // Array.prototype.myEvery = function(func) {
+        //     var _arr = this, len = _arr.length, param2 = arguments[1] || window;
+        //     for(var i = 0; i < len; i++) {
+        //         if(!func.apply(param2, [_arr[i], i, _arr])) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // var flag = personArr.myEvery(function(elem, index, self){
+        //     return elem.age > 15;
+        // }, {name:'cxj'});
+
+        // some 只要有一个元素符合条件就返回true,若全部都不符合就返回false
+        // var flag = personArr.some(function(elem,index,self){
+        //     return elem.age > 35;
+        // }, {name:'cxj'});
+        // Array.prototype.mySome = function(func) {
+        //     var _arr = this, len = _arr.length, param2 = arguments[1] || window;
+        //     for(var i = 0; i < len; i++) {
+        //         if(func.apply(param2, [_arr[i], i, _arr])) {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
+        // var flag = personArr.mySome(function(elem,index,self){
+        //     return elem.age > 20;
+        // }, {name:'cxj'});
+
+
+
+        // // reduce  从左向右遍历
+        // // 第一个参数: function(prevValue, curValue, index, self)
+        // // 第二个参数: initialValue 初始值
+        // var initialValue = {name: 'cxj'};
+        // var lastValue = personArr.reduce(function(prevValue, curValue, index, self){
+        //     console.log(prevValue, curValue, index, self);
+        //     return prevValue;
+        // }, initialValue);
+        // Array.prototype.myReduce = function(func, initialValue) {
+        //     var _arr = this, len = _arr.length, param2 = arguments[2] || window;
+        //     for(var i = 0; i < len; i ++) {
+        //         initialValue = func.apply(param2, [initialValue, _arr[i], i, _arr, this]);
+        //     }
+        //     return initialValue;
+        // }
+        // var lastValue = personArr.myReduce(function(prevValue, curValue, index, self){
+        //     console.log(prevValue, curValue, index, self, this);
+        //     prevValue.name += 1;
+        //     return prevValue;
+        // }, initialValue, {dom: 'dom'});
+
+
+
+        // // reduceRight  从右向左遍历
+        // // 第一个参数: function(prevValue, curValue, index, self)
+        // // 第二个参数: initialValue 初始值
+        // var initialValue = {name: 'cxj'};
+        // var lastValue = personArr.reduceRight(function(prevValue, curValue, index, self){
+        //     console.log(prevValue, curValue, index, self);
+        //     return prevValue;
+        // }, initialValue);
+        // Array.prototype.myReduceRight = function(func, initialValue) {
+        //     var _arr = this, len = _arr.length, param2 = arguments[2] || window;
+        //     for(var i = len; i > 0; i --) {
+        //         initialValue = func.apply(param2, [initialValue, _arr[i], i, _arr, this]);
+        //     }
+        //     return initialValue;
+        // }
+        // var lastValue = personArr.myReduceRight(function(prevValue, curValue, index, self){
+        //     console.log(prevValue, curValue, index, self, this);
+        //     prevValue.name += 1;
+        //     return prevValue;
+        // }, initialValue, {dom: 'dom'});
+
+
+
+
+    </script>
+</body>
+</html>

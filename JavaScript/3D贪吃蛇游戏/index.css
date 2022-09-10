@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.chess_board{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 100px;
+    margin-left: -250px;
+    font-size: 0px;
+}
+
+.begin{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #abcdef;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.square{
+    display: inline-block;
+    background: gray;
+    width: 20px;
+    height: 20px;
+    line-height: 0px;
+    box-sizing: border-box;
+    border-left: 1px dashed lightgray;
+    border-top: 1px dashed lightgray;
+}
+
+.ball{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0px;
+    top: 0px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+}
