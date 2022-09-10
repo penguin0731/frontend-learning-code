@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.header, .img, .img img{
+    width: 100%;
+    height: 100%;
+}
+.img{
+    position: relative;
+}
+.img .img-title{
+    position: absolute;
+    top: 50%;
+    left: 200px;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: all .8s linear;
+}
+.img .img-title.scroll{
+    top: 60%;
+    opacity: 0;
+}
+.img .img-title h1{
+    font-size: 60px;
+}
+.nav{
+    width: 100%;
+    height: 35px;
+    background-color: #1b1b1b;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+.nav > li{
+    margin: 0 10px;
+    cursor: pointer;
+    position: relative;
+}
+.nav > li:hover .category-list{
+    height: 63px;
+    visibility: visible;
+}
+.category-list{
+    height: 0;
+    visibility: hidden;
+    background-color: #1b1b1b;
+    width: 120px;
+    position: absolute;
+    top: 28px;
+    left: -12px;
+    transition: all .2s linear;
+    overflow: hidden;
+}
+.category-list li{
+    padding: 5px 10px;
+}
+.category-list li:nth-of-type(1){
+    border-bottom: 1px solid#ddd;
+}
+
+.content{
+    width: 100%;
+    background-color: #eee;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.content .list{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: space-around;
+}
+.content .list li{
+    text-align: center;
+    width: 100px;
+    height: 150px;
+    line-height: 150px;
+    background-color: #fff;
+    margin: 15px;
+    transition: all .4s linear;
+}
+.content .list li:hover{
+    transform: translateY(-10px);
+    box-shadow: 5px 5px 10px #555;
+}
+.goods{
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.goods-list{
+    display: flex;
+    justify-content: space-around;
+}
+.goods-list li{
+    position: relative;
+    width: 200px;
+    height: 300px;
+    background-image: url('http://e.hiphotos.baidu.com/image/pic/item/10dfa9ec8a1363279e1ed28c9b8fa0ec09fac79a.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: all .4s linear;
+}
+.goods-list li:hover{
+    background-size: 120% 120%;
+}
+.goods-list li:hover .title{
+    background-color: rgba(0, 0, 0, .5);
+}
+.goods-list li:hover .title span{
+    display: none;
+}
+.goods-list li .title,
+.goods-list li .btn{
+    position: absolute;
+}
+.goods-list li .title{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 300px;
+}
+.goods-list li .btn{
+    display: none;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+.goods-list li .btn:hover{
+    color: #fff;
+    background-color: transparent;
+}
+.goods-list li:hover .btn{
+    display: block;
+}
+

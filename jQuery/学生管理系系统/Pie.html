@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box, .sex {
+            width: 500px;
+            height: 500px;
+            border: 1px solid;
+            float: left;
+            margin: 50px 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="sex"></div>
+
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/Pie.js"></script>
+    <!-- <script>
+        function getData() {
+            $.ajax({
+                url: 'http://api.duyiedu.com/api/student/findAll',
+                data: { appkey: '13926806277_1558879000128' },
+                success: function (res) {
+                    var data = JSON.parse(res);
+                    getAreaPie(data.data);
+                }
+            });
+        }
+        getData();
+        function getAreaPie(data) {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init($('.box')[0]);
+            // 指定图表的配置项和数据
+            option = {
+                title: {
+                    text: '某站点用户访问来源',
+                    subtext: '纯属虚构',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    // data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        // data: [
+                        //     { value: 335, name: '直接访问' },
+                        //     { value: 310, name: '邮件营销' },
+                        //     { value: 234, name: '联盟广告' },
+                        //     { value: 135, name: '视频广告' },
+                        //     { value: 1548, name: '搜索引擎' }
+                        // ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            var legendArr = [];
+            var seriesArr = [];
+            var numObj = {};
+            data.forEach(function (ele, index) {
+                if(!numObj[ele.address]) {
+                    legendArr.push(ele.address);
+                    numObj[ele.address] = 1;
+                }else {
+                    numObj[ele.address] ++;
+                }
+            });
+            for(var prop in numObj) {
+                seriesArr.push({value: numObj[prop], name: prop});
+            }
+            option.legend.data = legendArr;
+            option.series[0].data = seriesArr;
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        }
+    </script> -->
+</body>
+
+</html>

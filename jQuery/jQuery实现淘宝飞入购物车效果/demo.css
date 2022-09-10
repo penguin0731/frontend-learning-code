@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .img-box ul{
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper .img-box ul li{
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    margin-left: 200px;
+}
+
+.wrapper .img-box ul li img{
+    width: 300px;
+    height: 300px;
+}
+
+.wrapper .img-box ul li button{
+    border: none;
+    width: 100px;
+    height: 35px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.wrapper .img-box ul li button.btn1{
+    background-color: #f40;
+}
+
+.wrapper .img-box ul li button.btn2{
+    background-color: #ed145b;
+}
+
+.wrapper .right-box{
+    position: fixed;
+    width: 42px;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+.wrapper .right-box ul{
+    margin-top: 100px;
+}
+
+.wrapper .right-box ul li{
+    position: relative;
+}
+
+.wrapper .right-box ul li a.pic,
+.wrapper .right-box ul li{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url('');
+}
+
+.wrapper .right-box ul li.thr a.pic{
+    background-position: 0 -200px;
+}
+
+.wrapper .right-box ul li.sec i{
+    background-position: 0 -60px;
+}
+
+.wrapper .right-box ul li.fif i{
+    background-position: 0 -278px;
+}
+
+.con{
+    width: 16px;
+    height: 48px;
+    color: #fff;
+    margin: 5px 0 0 12px;
+}
+
+.wrapper .right-box  ul li .left-box{
+    position: absolute;
+    width: 92px;
+    height: 40px;
+    border: 1px solid #000;
+    left: -121px;
+    top: 10px;
+}
+
+.wrapper .right-box  ul li span{
+    width: 21px;
+    height: 21px;
+    display: block;
+    border-radius: 50%;
+    background-color: #f40;
+    line-height: 21px;
+}

@@ -1,0 +1,322 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    font-size:14px;
+    color:#333;
+}
+.wrapper{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+}
+.wrapper .header{
+    position: fixed;
+    width:100%;
+    height: 4.5rem;
+    top: 0;
+    background:linear-gradient(90deg,#333,#111,#aaa);
+    padding-left:3rem;
+    box-sizing: border-box;
+}
+.wrapper .header::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(../images/bg.png) repeat;
+    background-position: center center;
+    opacity: .5;
+}
+.wrapper .header .logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+.wrapper .header .logo img{
+    width: 3rem;
+    height: 3rem;
+}
+.wrapper .header .logo span{
+    margin-left:1rem;
+    font-size:1.7rem;
+    text-shadow:4px 2px 6px #ccc;
+    animation: jumping 0.7s infinite alternate;
+}
+@keyframes jumping {
+    0%{
+        transform: translateY(0px);
+        text-shadow:4px 2px 6px #ccc;
+    }
+    100%{
+        transform: translateY(-15px);
+        text-shadow:3px 5px 6px rgba(255,255,255,.5);
+    }
+}
+.wrapper .header .logo span:nth-of-type(2) {
+    animation-delay: .2s;
+}
+.wrapper .header .logo span:nth-of-type(3) {
+    animation-delay: .4s;
+}
+.wrapper .header .logo span:nth-of-type(4) {
+    animation-delay: .6s;
+}
+.wrapper .header .btn{
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 9px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    z-index: 99;
+    transition: all .3s;
+    cursor: pointer;
+}
+.wrapper .header .btn:hover{
+    background-color: rgba(255, 255, 255, .1);
+    transform: translateY(-50%) scale(1.1);
+}
+.wrapper .header .btn span{
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+.wrapper .header .btn:hover span{
+    animation: change 2s ease-in-out infinite;
+}
+@keyframes change{
+    0%{
+        transform: rotateZ(0);
+    }
+    25%{
+        transform: rotateZ(45deg);
+    }
+    50%{
+        transform: rotateZ(0);
+    }
+    75%{
+        transform: rotateZ(-45deg);        
+    }
+    100%{
+        transform: rotateZ(0);
+    }
+    
+}
+.wrapper .header .drop-list{
+    position: absolute;
+    display: none;
+    left: 0;
+    width: 100vw;
+    background: linear-gradient(#222,#111,#000);
+    color: #ccc;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 999;
+}
+.wrapper .header .drop-list dl{
+    padding: 20px;
+}
+.wrapper .header .drop-list dt{
+    font-size: 16px;
+}
+.wrapper .header .drop-list dd{
+    font-size: 14px;
+    cursor: pointer;
+}
+.wrapper .header .drop-list dd:hover{
+    color: #fff;
+}
+.wrapper .header .drop-list dt,
+.wrapper .header .drop-list dd{
+    padding: 8px;
+}
+/* ↑--- header ---↑ */
+/* ↓--- leftMenu ---↓ */
+.wrapper .left-menu{
+    position: fixed;
+    width: 200px;
+    min-height: calc(100vh - 4.5rem);
+    top:4.5rem;
+    left:0;
+    background:linear-gradient(#333,#222,#111);
+    box-sizing: border-box;
+    padding-top:2rem;
+    padding-left:2rem;
+}
+.wrapper .left-menu::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(../images/bg.png) repeat;
+    background-position: center center;
+    opacity: .5;
+    z-index: -1;
+}
+.wrapper .left-menu dl{
+    color: #fff;
+}
+.wrapper .left-menu dl dt{
+    font-weight: bold;
+}
+.wrapper .left-menu dl dd{
+    color: #ccc;
+    text-align: center;
+    cursor: pointer;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-bottom: 5px;
+    transition: all .3s;
+}
+.wrapper .left-menu dl dd:hover{
+    color: #fff;
+}
+.wrapper .left-menu dl dd.active{
+    color:#fff;
+    background-color: rgba(255, 255, 255, .3);
+}
+.wrapper .left-menu dl dt,
+.wrapper .left-menu dl dd{
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+/* ↑--- leftMenu ---↑ */
+
+/* ↓--- rightContent ---↓ */
+.wrapper .right-content{
+    min-width: 990px;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 4.5rem;
+    padding-left: 200px;
+    background-color: #eee;
+}
+.wrapper .right-content #student-echarts{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 50px 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper .right-content #student-echarts .area,
+.wrapper .right-content #student-echarts .sex{
+    width: 500px;
+    height: 500px;
+}
+.wrapper .right-content #student-list,
+.wrapper .right-content #add-student{
+    display: none;
+}
+.wrapper .right-content #student-list{
+    padding: 20px;
+}
+.wrapper .right-content #student-list table{
+    width: 100%;
+}
+.wrapper .right-content #student-list table tr{
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+}
+.wrapper .right-content #student-list table tbody p{
+    font-size: 30px;
+}
+.wrapper .right-content #student-list table tr{
+    background-color: #ccc;
+}
+.wrapper .right-content #student-list table tr td{
+    text-align: center;
+    background-color: #fff;
+}
+.wrapper .right-content #student-list table .table-btn{
+    width: 65px;
+    height: 33px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bolder;
+    outline: none;
+}
+.wrapper .right-content #student-list table .edit{
+    background-color: #006400;
+}
+.wrapper .right-content #student-list table .del{
+    background-color: #CD0000;
+}
+.wrapper .right-content #student-list .modal{
+    display: none;
+}
+
+/* 媒体查询 */
+@media all and (max-width: 1100px) {
+    .wrapper{
+        min-width: 1100px;
+    }
+    .wrapper .right-content #student-echarts .area,
+    .wrapper .right-content #student-echarts .sex{
+        width: 400px;
+        height: 400px;
+    }
+}
+@media all and (max-width: 750px) {
+    .wrapper .header{
+        height: 3.8rem;
+    }
+    .wrapper .header .logo{
+        width: 300px;
+        transform: translateX(200px);
+    }
+    .wrapper .header .logo img{
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+    .wrapper .header .logo span{
+        font-size: 1.5rem;
+    }
+    .wrapper .header .btn{
+        display: block;
+    }
+    .wrapper .left-menu{
+        display: none;
+    }
+    .wrapper .right-content{
+        padding-top: 3.8rem;
+        padding-left: 0px;
+    }
+    .wrapper .right-content #student-echarts{
+        padding: 30px 30px 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .wrapper .right-content #student-echarts .area,
+    .wrapper .right-content #student-echarts .sex{
+        width: 500px;
+        height: 500px;
+    }
+    .wrapper .right-content #student-echarts .sex{
+        display: none;
+    }
+}
