@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.tip {
+            position: relative;
+            background-color: deepskyblue;
+            margin: 20px auto;
+            width: 246px;
+            height: 43px;
+            line-height: 43px;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            font-family: sans-serif;
+        }
+        .tip:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 8px solid;
+        }
+        .left:after {
+            border-right-color: deepskyblue;
+            top: 50%;
+            right: 100%;
+            margin-top: -9px;
+        }
+
+	</style>
+</head>
+<body>
+	<form method="get" action="">
+		<h1>Choose your sex!</h1>
+		male<input type="radio" name="sex" value="male" checked="checked">
+					<!-- 单选    数据名     数据值        默认选项 -->
+		female<input type="radio" name="sex" value="female">
+		<input type="submit">
+	</form>
+
+	<select name="province" id="">
+		<option value="">北京</option>
+		<option value="">广东</option>
+		<option value="">上海</option>
+
+	</select>
+	<input type="submit">
+	
+	
+
+	<div class="tip left">left</div>
+	
+</body>
+</html>

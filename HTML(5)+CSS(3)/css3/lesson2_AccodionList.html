@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        .wrapper{
+            width: 200px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid black;
+        }
+        h3:first-child{
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .wrapper a{
+            display: block;
+            background-color: aqua;
+            color: palevioletred;
+            font-size: 18px;
+            font-weight: bold;
+            height: 25px;
+            line-height: 25px;
+        }
+        .wrapper div{
+            font-size: 14px;
+        }
+        .wrapper div[id]:not(:target){
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h3>Accodion List</h3>
+        <a href="#text1">content1</a>
+        <div id="text1">text1</div>
+        <a href="#text2">content2</a>
+        <div id="text2">text2</div>
+        <a href="#text3">content3</a>
+        <div id="text3">text3</div>
+    </div>
+</body>
+</html>

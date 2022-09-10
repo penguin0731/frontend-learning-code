@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 400px;
+            border: 1px solid black;      
+        }
+        .wrapper{
+            margin: 50px 100px;
+        }
+        .content{
+            border: none;
+            column-width: 300px;
+            column-gap: 20px;
+        }
+        div:hover .content{
+            /* transform: translateX(-320px); */
+            transition: all 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            新华社北京6月25日电中共中央政治局6月24日下午就“牢记初心使命，推进自我革命”举行第十五次集体学习。中共中央总书记习近平在主持学习时强调，我们党作为百年大党，如何永葆先进性和纯洁性、永葆青春活力，如何永远得到人民拥护和支持，如何实现长期执政，是我们必须回答好、解决好的一个根本性问题。我们党要求全党同志不忘初心、牢记使命，就是要提醒全党同志，党的初心和使命是党的性质宗旨、理想信念、奋斗目标的集中体现，越是长期执政，越不能忘记党的初心使命，越不能丧失自我革命精神，在新时代把党的自我革命推向深入，把党建设成为始终走在时代前列、人民衷心拥护、勇于自我革命、经得起各种风浪考验、朝气蓬勃的马克思主义执政党。中央党史和文献研究院研究员孙业礼同志就这个问题作了讲解，并谈了意见和建议。习近平在主持学习时发表了讲话。他首先表示，再过几天，就是我们党成立98周年了，我代表党中央，向全国广大党员致以节日的祝贺!习近平指出，安排这次中央政治局集体学习，目的是总结党的历史经验，结合新时代新要求，推动全党围绕守初心、担使命，找差距、抓落实切实搞好主题教育。这也是中央政治局带头开展主题教育的一项重要安排。中央政治局的同志要作好示范，在不忘初心、牢记使命上为全党作表率。习近平强调，我们党是用马克思主义武装起来的政党，始终把为中国人民谋幸福、为中华民族谋复兴作为自己的初心和使命，并一以贯之体现到党的全部奋斗之中。回顾党的历史，为什么我们党在那么弱小的情况下能够逐步发展壮大起来，在腥风血雨中能够一次次绝境重生，在攻坚克难中能够不断从胜利走向胜利，根本原因就在于不管是处于顺境还是逆境，我们党始终坚守为中国人民谋幸福、为中华民族谋复兴这个初心和使命，义无反顾向着这个目标前进，从而赢得了人民衷心拥护和坚定支持。中国特色社会主义进入新时代，我们比历史上任何时期都更接近、更有信心和能力实现中华民族伟大复兴。我们千万不能在一片喝彩声、赞扬声中丧失革命精神和斗志，逐渐陷入安于现状、不思进取、贪图享乐的状态，而是要牢记船到中流浪更急、人到半山路更陡，把不忘初心、牢记使命作为加强党的建设的永恒课题，作为全体党员、干部的终身课题。
+        </div>
+    </div>
+
+    <script src="../../jQuery/jquery-3.3.1.js"></script>
+    <script>
+        document.onselectstart = function(){return false;}; 
+        function bindEvent() {
+            var content = $('.content')[0];
+            var key = false;
+            var slideX = 0;
+            var X = 320;
+            var page = 1;
+            var pageCount = Math.floor(content.scrollWidth / content.clientWidth);
+            $('div').eq(0).on('mousedown', function(e) {
+                key = false;
+                var downX = e.clientX;
+                console.log('鼠标按下:'+e.clientX);
+                $(this).eq(0).on('mouseup', function(e) {
+                    if(key){
+                        return false;
+                    }
+                    key = true;
+                    var leaveX = e.clientX;
+                    console.log('鼠标按下:'+e.clientX)
+                    if (downX - leaveX > 0) {
+                        if(page == pageCount) {
+                            return false;
+                        }
+                        page++;
+                        slideX -= X;
+                        $(this).find('.content').css({transform: 'translateX(' + slideX +'px)',});
+                    }else if(downX - leaveX < 0){
+                        if(page == 1) {
+                            return false;
+                        }
+                        page--;
+                        slideX += X;
+                        $(this).find('.content').css({transform: 'translateX(' + slideX +'px)',});
+                    }
+                    console.log(downX - leaveX > 0 ? '右滑':'左滑');
+                });
+            });
+        }
+        bindEvent();
+    </script>
+</body>
+
+</html>

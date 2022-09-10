@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		.demo{
+			width: 0;
+			height: 0;
+			border: 100px solid transparent;
+			border-bottom: 100px solid black;
+		}
+	</style>
+</head>
+<body>
+		<!-- <span></span>
+		<strong></strong>
+		<div></div> -->
+
+		<!-- <div>
+			<span></span>
+			<b></b>
+			<i></i>
+		</div> -->
+
+		<!-- minutes:<input type="text" value="0">
+		seconds:<input type="text" value="0"> -->
+		
+		<!-- <div>
+			<div class="demo" style="position: absolute; width: 100px; height: 100px; top: 100px; left: 100px; background-color: red;"></div>
+		</div> -->
+
+		<!-- <ul>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+		</ul> -->
+		
+		<div class="demo"></div>
+
+		<script  src="../JavaScript/tool.js"></script>
+		<script>
+			// function voice(animal){
+			// 	if(animal == "猫"){
+			// 		console.log('喵');
+			// 	}else if(animal == '狗'){
+			// 		console.log('汪');
+			// 	}else if(animal == '牛'){
+			// 		console.log('哞');
+			// 	}
+			// }
+	
+			// voice('狗');
+			
+			//阶乘
+			// function jc(n){
+			// 	if(n == 0 || n == 1){
+			// 		return 1;
+			// 	}
+			// 	return n*jc(n-1);
+			// }
+			// 
+			// var jc = function jc(n) {
+            // return n == 1 ? 1 : (n < 1 ? '1以下没有阶乘' : n * jc(n-1)) ;
+        	// }
+			// 或(当函数体没有名时,用arguments.callee)
+			// 
+			// var num = funciton (n) {
+			// 		if(n == 0 || n == 1){
+			// 			return 1;
+			// 		}
+			// 		return n * arguments.callee(n-1);
+			// }(50)
+			
+	
+			// function num(n){
+			// 	var first = 1,
+			// 		second = 1,
+			// 		third;
+			// 	if(n>=3){
+			// 		console.log(first);
+			// 		console.log(second);
+			// 		for(var i = 3; i<=n; i++){
+			// 			third = first + second;
+			// 			first = second;
+			// 			second = third;
+			// 			console.log(third);
+			// 		}	
+			// 	}
+			// }
+			// num(6);
+			
+			// 要求输入一串低于10位的数字，输入这串数字的中文大写
+			// 0,000,000,000
+			// 拾亿，亿 千万 百万，拾万 万 仟，佰 拾 个
+			// var numArr = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾'];
+			// var unitArr = ['', '拾', '佰', '仟', '万', '拾', '佰', '仟', '亿'];
+			// var num = String(window.prompt('input'));	//100
+			// function cnNum(num) {
+				
+			// }
+			// cnNum(num);
+	
+	
+			// function test(){
+			// 	var arr = [];
+			// 	for(var i = 0; i < 10; i++){
+	
+			// 		(function(j){
+			// 			arr[j] = function(){
+			// 			console.log(j);
+			// 			}
+			// 		}(i))
+					
+			// 	}
+			// 	return arr;
+			// }
+	
+			// var myArr = test();
+			// for(var j = 0; j < 10; j++){
+			// 	myArr[j]();
+			// }
+	
+			// function codeLen(target){
+			// 	var count,
+			// 		len;
+			// 		count = len = target.length;
+			// 	for(var i = 0; i<len; i++){
+			// 		if(target.charCodeAt(i) > 255){
+			// 			count ++;
+			// 		}
+			// 	}
+			// 	console.log(count);
+			// }
+	
+			// function Person(name, age){
+			// 	this.name = name;
+			// 	this.age = age;
+			// }
+			// var person = new Person('Chen', 18);
+			// var obj = {}
+			// Person.call(obj, 'Liu', 18);
+			
+			// 圣杯模式
+			// function inherit(Target, Origin){
+			// 	function F(){}
+			// 	F.prototype = Origin.prototype;	//不能跟下面一行调换，否则将改变原型指向
+			// 	Target.prototype = new F();
+			// 	Target.prototype.constructor = Target;
+			// 	Target.prototype.uber = Origin.prototype;
+			// }
+			// var inherit = (function(){
+			// 	var F = function(){};
+			// 	return function(Target, Origin){
+			// 		F.prototype = Origin.prototype;
+			// 		Target.prototype = new F();
+			// 		Target.prototype.constructor = Target;
+			// 		Target.prototype.uber = Origin.prototype;
+			// 	}
+			// }());
+			// Father.prototype.lastName = "Chen";
+			// function Father(){}
+			// function Son() {}
+			// inherit(Son, Father);
+			// var son = new Son();
+			// var father = new Father();
+	
+	
+			// var obj = {
+			// 	name: 'Jack',
+			// 	age: 20,
+			// 	sex: 'male',
+			// 	height: 170,
+			// 	weight: 60,
+			// 	__proto__ : { //原型
+			// 		firstName: 'xinjian'
+			// 	}
+			// }
+	
+			// for(var prop in obj){
+			// 	if(obj.hasOwnProperty(prop)){  //判断属性是否是对象自己的属性,排除原型
+			// 	console.log(obj[prop]);
+			// 	// console.log(obj.prop ---> obj['prop']);				
+			// 	}
+			// }
+	
+	
+			// 深度克隆
+			// 遍历对象for(var prop in origin)
+			// 1.判断是不是原始值 typeof() object
+			// 2.判断是数组还是对象 toString(推荐)、instanceof、constructor
+			// 3.建立相应对象或数组
+			// 递归
+			// var obj = {
+			// 	name: 'Jack',
+			// 	age: '18',
+			// 	card: ['abc','efg'],
+			// 	wife: {
+			// 		name: 'Lisa',
+			// 		son: {
+			// 			name: 'Tom'
+			// 		}
+			// 	} 
+			// }
+			// var obj1 = {}
+			function deepClone(origin, target) {
+				var target = target || {},
+					toStr = Object.prototype.toString,
+					arrStr = "[object Array]";
+				for(var prop in origin){
+					if(origin.hasOwnProperty(prop)){
+						if(origin[prop] !== null && typeof(origin[prop]) == 'object'){ //是否为引用值
+							target[prop] = toStr.call(origin[prop]) == arrStr? [] : {};
+							deepClone(origin[prop], target[prop]); //克隆origin[prop]
+						}else{
+							target[prop] = origin[prop];      //原始值
+						 }
+					}
+				}
+				return target;
+			}
+	
+	
+			// 1.必须写两个形参
+			// 2.看返回值：1）当返回值为负数时，前面的形参放在前面
+			//            2）为正数时，后面的形参放在前面
+			//            3）为0，不动
+			// var arr = [1,3,5,6];
+			// arr.sort(function(a, b) {
+			// 	// if(a > b){
+			// 	// 	return 1;
+			// 	// }else{
+			// 	// 	return -1;
+			// 	// }
+			// 	return a - b; //升序
+			// 	// if(a < b){
+			// 	// 	return -1;
+			// 	// }else{
+			// 	// 	return 1;
+			// 	// }
+			// 	return b - a; //降序
+			// 	});
+	
+				//类数组
+				// var obj = {
+				// 	"2" : "a",
+				// 	"3" : "b",
+				// 	"length" : 2,
+				// 	"push" : Array.prototype.push
+				// }
+				// obj.push("c");
+				// obj.push("d");
+	
+				// 属性要为索引(数字)属性,必须有length属性,最好加上push方法
+	
+				// Array.prototype.push: function (target){
+				// 	obj[obj.length] = target;
+				// 	// this[this.lenght] = target;
+				// 	obj.length ++;
+				// }
+	
+	
+				// 数组去重
+				// var arr = [1,1,2,1,2,2];
+				// Array.prototype.unique = function(){
+				// 	var temp = {},
+				// 	    arr = [],
+				// 	    len = this.length;
+				// for(var i = 0; i < len; i++){
+				// 	if(!temp[this[i]]){
+				// 		temp[this[i]] = "abc";
+				// 		arr.push(this[i]);
+				// 		}
+				// 	}
+				// 	return arr;	
+				// }
+
+				
+	
+				// 不用reserve()实现数组的反转
+				// 方法一：
+				// var arr = [1,2,3,4,5,6],
+				// 	newArr = [];
+				// while(arr.length){
+				// 	var num = arr.pop();
+				// 	newArr.push(num);
+				// }
+				// console.log(newArr);
+	
+				// 方法二：
+				// var arr = [1,2,3,4,5,6],
+				// 	newArr = [];
+				// while(arr.length){
+				// 	var num = arr.shift();
+				// 	newArr.unshift(num);
+				// }
+				// console.log(newArr);
+				
+				// (function(){
+				// 	var a = b = 3;
+				// })()
+				// console.log("a defined?"+(typeof(a) !== 'undefined'));
+				// console.log("b defined?"+(typeof(b) !== 'undefined'));
+	
+	
+				// (function(){
+				// 	console.log(1);
+				// 	setTimeout(function(){console.log(2)}, 1000);
+				// 	setTimeout(function(){console.log(3)}, 0);
+				// 	console.log(4);
+				// })();
+				
+	
+			// var b = 1;
+			// function outer(){
+			// 	var b = 2;
+			// 	function inner(){
+			// 		b++;
+			// 		var b = 3;
+			// 		console.log(b);
+			// 	}
+			// 	inner();
+			// }
+			// outer();
+	
+			
+		</script>
+		<script>
+			// var all = document.getElementsByTagName('*');
+			// for(var i = 0; i < all.length; i ++) {
+			// 	all[i].setAttribute('this-name', all[i].nodeName);
+			// }	
+			// var div = document.createElement('div');
+			// var p = document.createElement('p');
+			// document.body.appendChild(div);
+			// div.appendChild(p);
+			// div.setAttribute("class", "example");
+			// p.setAttribute("class", "slogan");
+			// // var text = document.createTextNode("hello javascript!");
+			// // p.appendChild(text);
+			// p.innerHTML = 'hello javascript!';
+		
+
+
+			// var firstTime = new Date().getTime();
+			// for(var i = 0; i < 100000000; i ++) {}
+			// var lastTime = new Date().getTime();
+			// console.log(lastTime - firstTime);
+
+			// var date = new Date();
+			// date.setMinutes(26);
+			// setInterval(function(){
+			// 	if(new Date().getTime() - date.getTime() > 1000) {
+			// 		console.log("hello")
+			// 	}
+			// }, 1000);
+
+			// function date(){
+			// 	var year = new Date().getFullYear();
+			// 	var month = new Date().getMonth() + 1;
+			// 	var date = new Date().getDate();
+			// 	var hours = new Date().getHours();
+			// 	var minutes = new Date().getMinutes();
+			// 	var seconds = new Date().getSeconds();
+			// 	console.log("当前日期是"+year+"年"+month+"月"+date+"日"+hours+"时"+minutes+"分"+seconds+"秒");
+			// }
+			// console.log(date());
+
+			// // 三分钟计时器
+			// var a = 0;
+			// var b = 0;
+			// var minutes = document.getElementsByTagName('input')[0];
+			// var seconds = document.getElementsByTagName('input')[1];
+			// var timer = setInterval(function (){
+			// 	a++;
+			// 	if(a == 60){a = 0;b++;} 
+			// 	// seconds.setAttribute('value', a);
+			// 	// minutes.setAttribute('value', b);
+			// 	seconds.value = a;
+			// 	minutes.value = b;
+			// 	if(b == 3){
+			// 		clearInterval(timer);
+			// 	}
+			// }, 1000);
+
+			// var speed = 2;
+			// var div = document.getElementsByTagName('div')[1];
+			// var timer = setInterval(function(){
+			// 	div.style.left = parseInt(getStyle(div, "left")) + speed + "px";
+			// 	if(parseInt(div.style.left) > 500) {
+			// 		clearInterval(timer);
+			// 	}
+			// }, 10);
+		
+			// var demo = document.getElementsByClassName("demo")[0];
+
+			// var li = document.getElementsByTagName('li');
+			// for(var i = 0; i < li.length; i ++) {
+			// 	(function(i){
+			// 		li[i].addEventListener('click', function() {
+			// 		console.log(i);
+			// 		}, false);
+			// 	}(i));
+			// }
+
+			// var div = document.getElementsByTagName('div')[0];
+			// drag(div);
+
+			// 返回键盘输入
+			// document.onkeypress = function(e) {
+			// 	console.log(String.fromCharCode(e.charCode));
+			// }
+
+			//正则表达式
+			// 将字符串the-first-name转换成小驼峰式
+			// var reg = /-(\w)/g;
+			// var str = "the-first-name";
+			// console.log(str.replace(reg, function($, $1) {
+			// 	return $1.toUpperCase();
+			// }));
+			//
+			//将100000000转化成100,000,000(难度max)
+			// var str = "100000000";
+			// var reg = /(?=(\B)(\d{3})+$)/g;
+			// console.log(str.replace(reg, ","));
+			
+			//阶乘
+			// function factory(n) {
+			// 	if(n==0 || n==1) {
+			// 		return 1;
+			// 	}
+			// 	return n * factory(n-1);
+			// }
+			
+			// 请给Array本地对象增加一个原型方法，它用于删除数组条目中重复的条目(可能有多个)，返回值是一个包含被删除的重复条目的新数组
+			// Array.prototype.distinct = function() {
+            // 	var newArr = [];
+            // 	for(var i = 0; i < this.length; i++) {
+            //    		for(var j = i+1; j < this.length; j++) {
+            //         	if(this[i] === this[j]) {
+            //             	newArr.push(this.splice(j,1)[0]);
+            //         	}
+            //     	}
+            // 	}
+            // 	return newArr; 
+        	// }
+			// var Arr = [1,2,3,1,4,2,5];
+			// console.log(Arr.distinct());
+
+			// var a = {},
+			// 		b = {key: 'b'},
+			// 		c = {key: 'c'};
+			// a[b] = 123;
+			// a[c] = 456;
+			// console.log(a[b]); //456
+		
+			// var length = 10;
+			// function fn() {
+			// 	console.log(this.length);
+			// }
+			// var obj = {
+			// 	length: 5,
+			// 	method: function (fn) {
+			// 		fn();
+			// 		arguments[0]();
+			// 	}
+			// }
+			// obj.method(fn, 1); //输出 10 2
+
+			// var div = document.getElementsByTagName('div')[0];
+
+			// 对数组进行排序，要求排序后数组中无重复数据
+			// var x = new Array(1,3,4,5,7,7,4,5,6,7,7); //1,3,4,5,6,7
+			// function check(value, arr) {
+			// 	for(i in arr) {
+			// 		if(value == arr[i]){
+			// 			return true;
+			// 		}
+			// 	}
+			// 	return false;
+			// }
+			// function uniqueArr(Arr) {
+			// 	var result = new Array();
+			// 	while(Arr.length != 0) {
+			// 		var temp = Arr.pop();
+			// 		// console.log(temp);
+			// 		if(!check(temp, Arr)) {
+			// 			result.push(temp);
+			// 		}
+			// 	}
+			// 	return result;
+			// }
+			// x = uniqueArr(x);
+			// console.log(x);
+			// x.sort();
+			// console.log(x);
+
+			// var a = 5;
+			// function test(){
+			// 	a = 0;
+			// 	console.log(a);
+			// 	console.log(this.a);
+			// 	var a;
+			// 	console.log(a);
+			// }
+			// test();	//0 5 0
+			// new test();	//0 undefined 0 test{}
+
+			// Person.prototype = {
+			// 	height: 100
+			// }
+			// function Person() {
+			// 	this.eat = function() {
+			// 		this.height ++;
+			// 	}
+			// }
+			// var person = new Person();
+
+			// var n = 2;  
+			// var obj = {
+			// 	n: 3,
+			// 	fn:	(function(n) {
+			// 			n *= 2;
+			// 			this.n += 2;
+			// 			var n = 5;
+			// 			return function(m) {
+			// 				console.log(this);
+			// 				this.n *= 2;
+			// 				console.log(m + (++n));
+			// 			}
+			// 	})(n)
+			// }
+			// var fn = obj.fn;
+			// fn(3);			//9
+			// obj.fn(3);	//10
+			// console.log(n, obj.n);	//8, 6
+
+			// 数组去重的几个简单方法
+			// 1. indexOf
+			// 2. 借助对象属性名的唯一性
+			// 3. es6 new Set(arr)
+
+
+			//封装call apply方法
+			// var value = "window";
+			// var obj = {
+			// 	value: "obj"
+			// }
+			// function show (name, age) {
+			// 	console.log(this.value);
+			// 	return {
+			// 		name: name,
+			// 		age: age
+			// 	}
+			// }
+			// var result = show.call(obj, "cxj", 20);
+
+			// Function.prototype.newCall = function () {
+			// 	var thisObj = arguments[0] || window;
+			// 	thisObj.fn = this;
+			// 	var args = [];
+			// 	for(var i = 1; i < arguments.length; i++) {
+			// 		args.push("arguments[" + i + "]");
+			// 	}
+			// 	var result = eval('thisObj.fn(' + args.join(',') +')'); //执行
+			// 	delete thisObj.fn;
+			// 	return result;
+			// }
+
+			// var res = show.newCall(obj, "lqz", 19);
+
+			// Function.prototype.newApply = function (fn, arr) {
+			// 	var thisObj = arguments[0] || window;
+			// 	thisObj.fn = this;
+			// 	if(!arr) {
+			// 		var result = thisObj.fn();
+			// 		delete thisObj.fn;
+			// 		return result;
+			// 	}else {
+			// 		var args = [];
+			// 		for(var i = 0; i < arr.length; i++) {
+			// 			args.push("arr[" + i + "]");
+			// 		}
+			// 		var result = eval('thisObj.fn(' + args.join(',') +')'); //执行
+			// 		delete thisObj.fn;
+			// 		return result;
+			// 	}
+			// }
+			// var temp = show.apply(null, ["lqz", 19]);
+
+			// var str = 'https://www.baidu.com/s?ie=utf-8&f=8';
+			// // {protocol:  'https',  host：'www.baidu.com', path: '/s',  search: {ie:'utf-8',f:'8'}}
+			// function urlObj(str) {
+			// 	var obj = {};
+			// 	var protocol = /\w+(?=:)/g;
+			// 	obj.protocol = str.match(protocol)[0];
+			// 	var hostAndPath = /\/.+(?=\?)/g;
+			// 	var hostAndPathArr = str.match(hostAndPath)[0].split('/');
+			// 	obj.host = hostAndPathArr[2];
+			// 	var path = '';
+			// 	for(var i = 3; i < hostAndPathArr.length; i ++) {
+			// 		path = '/' + hostAndPathArr[i];
+			// 	}
+			// 	obj.path = path;
+			// 	obj.search = {};
+			// 	var search = /\?.+/g;
+			// 	// 键值数组
+			// 	var propArr = str.match(search)[0].split('?')[1].split('&');
+			// 	for(var j = 0; j < propArr.length; j++) {
+			// 		var tempArr = propArr[j].split('=');
+			// 		obj.search[tempArr[0]] = tempArr[1];
+			// 	}
+			// 	return obj;
+			// }
+			// console.log(urlObj(str));
+
+			// var number = 5; //20
+			// var obj = {
+			// 	number: 3,	
+			// 	fun1: (function () {
+			// 		var number;	//3
+			// 		this.number *= 2;
+			// 		number = number * 2;
+			// 		number = 3;
+			// 		return function () {
+			// 			var num = this.number;	//10	//3
+			// 			this.number *= 2;	//6
+			// 			console.log(num);	
+			// 			number *= 3;	//9		//27
+			// 			console.log(number);
+			// 		}
+			// 	}())
+			// }
+			// var fun1 = obj.fun1;
+			// fun1.call(null);
+			// obj.fun1();
+			// console.log(window.number);
+		</script>
+</body>
+</html>

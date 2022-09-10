@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // js都是单线程
+        // worker 是真的多线程,不是伪多线程
+        // 不能操作DOM 没有window对象 不能读取本地文件 兼容性较差
+        // 可以发ajax 可以运算
+        // worker需要在服务器上运行,从本地文件中打开会报错
+        // 能否在worker里创建新的worker?
+        // 理论上可行,但实际上没有任何一款浏览器支持
+        console.log('=======');
+        console.log('=======');
+        var a = 100000;
+        // 不管是主线程还是辅线程,都用postMessage发送数据,用onmessage接收数据
+        var worker = new Worker('./worker.js');
+        worker.postMessage({
+            num: a
+        });
+        worker.onmessage = function (e) {
+            console.log(e.data);
+        }
+        console.log('=======');
+        console.log('=======');
+        // 终止worker
+        worker.terminate(); 
+    </script>
+</body>
+</html>

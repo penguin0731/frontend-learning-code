@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .wrapper{
+            margin: 100px;
+        }
+
+        input{
+            width: 400px;
+            height: 34px;
+        }
+
+        ul{
+            display: none;
+            width: 400px;
+            /* height: 200px; */
+            border: 1px solid #ccc;
+        }
+
+        li:hover{
+            cursor: pointer;
+            background-color: #ddd;
+        }
+        
+        a{
+            color: #999;
+            font-size: 14px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="text">
+        <ul></ul>
+
+    </div>
+    
+    <script>
+        var oInput = document.getElementsByTagName('input')[0];
+        var oUl = document.getElementsByTagName('ul')[0];
+        oInput.oninput = function () {
+            var value = this.value;
+            var oScript = document.createElement('script');
+            oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + value +'&cb=doJson';
+            document.body.appendChild(oScript);
+            document.body.removeChild(oScript);
+        }
+        function doJson (data) {
+            var s = data.s;
+            var str = '';
+            if (s.length > 0) {
+                s.forEach(function (ele,index) {
+                    str += '<li><a href="https://www.baidu.com/s?wd=' + ele + '">' + ele + '</a></li>';
+                });
+                oUl.innerHTML = str;
+                oUl.style.display = 'block';
+            }else {
+                oUl.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

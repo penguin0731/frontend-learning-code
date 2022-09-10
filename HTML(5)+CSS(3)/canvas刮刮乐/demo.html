@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #myCanvas{
+            background: url(./img/dog5.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+    <script>
+        var myCanvas = document.getElementById('myCanvas');
+        var ctx = myCanvas.getContext('2d');
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "#ddd";
+        ctx.fillRect(0,0,myCanvas.width, myCanvas.height);
+        ctx.fill();
+        ctx.globalCompositeOperation = 'destination-out';
+        myCanvas.onmousedown = function (e) {
+            var x1 = e.pageX;
+            var y1 = e.pageY;
+            ctx.moveTo(x1,y1);
+            this.onmousemove = function (e) {
+                var x2 = e.pageX;
+                var y2 = e.pageY;
+                ctx.lineTo(x2,y2);
+                ctx.lineWidth = 30;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+            }
+            this.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+
+    </script>
+</body>
+</html>

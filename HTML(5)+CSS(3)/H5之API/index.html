@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input id="search" type="text">
+    <button id="btn" type="submit">搜索</button>
+    <div id="main">
+    </div>
+    <script>
+        // 获取地理信息
+        // 一些系统不支持
+        // 定位(GPS) 台式机几乎没有GPS,笔记本绝大多数都没有GPS,智能手机几乎都有
+        // 网络定位,粗略的估计地理位置
+        // 只有https协议,file协议能够获取,http协议下不能获取
+        // 经度最大值180  纬度最大值90
+        // window.navigator.geolocation.getCurrentPosition((position) => {
+        //     console.log('======');
+        //     console.log(position);
+        // }, () => {
+
+        // })
+
+
+        // cookie: 每次都有可能发送大量的无用数据到后端
+        // localStorage
+        // 只能存储字符串
+        // 长期存入浏览器的,写入loacalStorage(无论窗口是否关闭都要存储)
+        // localStorage.name = 'cxj';
+        // // 使用JSON方法存储,对象同理
+        // localStorage.arr = JSON.stringify([1,2,3]);
+        // console.log(JSON.parse(localStorage.arr));
+        // // 这次会话临时需要存储的变量
+        // // 每次窗口关闭时,sessionStorage都会清空
+        // sessionStorage.name = 'cxj';
+
+        // localStorage和cookie的区别
+        // 1. 在发送请求时,localStorage不会把数据发送出去,cookie会把所有数据发送出去
+        // 2. cookie存储的内容较少(大约4k),localStorage可以存放较多内容(5M)
+
+
+        // history
+        var data = [{ name: 'HTML' }, { name: 'CSS' }, { name: 'JS' }, { name: 'JQUERY' }];
+        var oInp = document.getElementById('search');
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            var value = oInp.value;
+            var result = data.filter(function (obj) {
+                if (obj.name.indexOf(value) != -1) {
+                    return obj;
+                }
+            });
+            renderData(result);
+            history.pushState({inpVal: value}, null, "#" + value);
+        };
+        function renderData(data) {
+            var str = '';
+            data.forEach((ele) => {
+                str += '<div>' + ele.name + '</div>';
+            });
+            document.getElementById('main').innerHTML = str;
+        }
+        renderData(data);
+        // 只要url变了就会触发
+        window.addEventListener('popstate', function (e) {
+            oInp.value = e.state.inpVal;
+            var value = oInp.value;
+            var result = data.filter(function (obj) {
+                if (obj.name.indexOf(value) != -1) {
+                    return obj;
+                }
+            });
+            renderData(result);
+        });
+        // hash值变了才会触发,也就是锚点
+        window.addEventListener('hashchange', function (e) {
+            
+        });
+
+        
+    </script>
+</body>
+
+</html>

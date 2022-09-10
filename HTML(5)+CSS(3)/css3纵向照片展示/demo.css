@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body,.wrapper{
+    width: 100%;
+    height: 100%;
+}
+.wrapper{
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper .content{
+    width: 80%;
+    height: 80%;
+    /* border: 1px solid #fff; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapper .content .item{
+    width: 16%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: width .5s linear, height .5s linear .5s;
+}
+.wrapper .content .item .inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all .5s linear;
+}
+.wrapper .content .item:nth-of-type(2) .inner{
+    transition-delay: .1s;
+}
+.wrapper .content .item:nth-of-type(3) .inner{
+    transition-delay: .2s;
+}
+.wrapper .content .item:nth-of-type(4) .inner{
+    transition-delay: .3s;
+}
+.wrapper .content .item:nth-of-type(5) .inner{
+    transition-delay: .4s;
+}
+.wrapper .content .item:nth-of-type(6) .inner{
+    transition-delay: .5s;
+}
+.wrapper .content .item .bg{
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/1.jpg);
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.5;
+    transition: all 0.3s linear;
+}
+.wrapper .content .item:nth-of-type(2) .bg{
+    background-image: url(./img/2.jpg);
+}
+.wrapper .content .item:nth-of-type(3) .bg{
+    background-image: url(./img/3.jpg);
+}
+.wrapper .content .item:nth-of-type(4) .bg{
+    background-image: url(./img/4.jpg);
+}
+.wrapper .content .item:nth-of-type(5) .bg{
+    background-image: url(./img/5.jpg);
+}
+.wrapper .content .item:nth-of-type(6) .bg{
+    background-image: url(./img/6.jpg);
+}
+.wrapper .content .item:hover .bg{
+    opacity: 1;
+}
+.wrapper .content .item .title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+.wrapper .content .item .title h2{
+    font-size: 18px;
+    color: #fff;
+    transition: all .3s linear;
+}
+.wrapper .content .item:hover .title h2{
+    font-size: 26px;
+}
+.wrapper.init .content .item .inner{
+    transform: translateY(101%);
+}
+.wrapper .content .item.active{
+    width: 100%;
+    height: 100%;
+}
+.wrapper.wrapper-active .content .item:not(.active){
+    width: 0;
+    height: 0;
+}
+.wrapper-active .content .item{
+    cursor: auto;
+    transition: height .5s linear, width .5s linear .5s;
+}
+.wrapper-active .content .item .bg{
+    opacity: 1;
+}
+.wrapper-active .content .item .title{
+    opacity: 0;
+    transition: all .3s linear;
+}
+.wrapper .content .item .dir{
+    width: 100%;
+    position: absolute;
+    top: 6%;
+    opacity: 0;
+    /* border: 1px solid #fff; */
+}
+.wrapper.wrapper-active .content .item .dir{
+    opacity: 1;
+    transition: all .3s linear 1s;
+}
+.wrapper .content .item .dir .header{
+    font-size: 18px;
+    margin-left: 30px;
+    color: #fff;
+}
+.wrapper.wrapper-active .content .item .dir .close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -5px;
+    right: 6%;
+    /* border: 1px solid #fff; */
+    cursor: pointer;
+}
+.wrapper.wrapper-active .content .item .dir .close::before,
+.wrapper.wrapper-active .content .item .dir .close::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: calc(50% - 13px);
+    width: 26px;
+    height: 4px;
+    background-color: #fff;
+}
+.wrapper.wrapper-active .content .item .dir .close::before{
+    transform: rotate(45deg);
+}
+.wrapper.wrapper-active .content .item .dir .close::after{
+    transform: rotate(-45deg);
+}
+.wrapper.wrapper-active .content .item.active .dir .close{
+    transform: rotate(360deg);
+    transition: all .3s linear 1s;
+}
+
+

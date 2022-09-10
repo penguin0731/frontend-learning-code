@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo" ></div>
+    
+    <script>
+        var demo = document.getElementsByClassName('demo')[0];
+
+        var cookie = {
+            setCookie: function (name, value, time) {
+                document.cookie = name + '=' + value + ';max-age=' + time;
+                return this;
+            },
+            removeCookie: function (name) {
+                return this.setCookie(name, '', -1);
+            },
+            getCookie: function (name, callback) {
+                var allCookiesArr = document.cookie.split('; ');
+                for (var i = 0; i < allCookiesArr.length; i ++) {
+                    var itemCookiesArr = allCookiesArr[i].split('=');
+                    if (itemCookiesArr[0] == name) {
+                        callback(itemCookiesArr[1]);
+                        return this;
+                    }
+                }
+                callback(null);
+                return this;
+            }
+        }
+        
+        function drag(elem) {
+            var disX,
+                disY;
+            elem.onmousedown = function(e) {
+                disX = e.pageX - parseInt(elem.offsetLeft);
+                disY = e.pageY - parseInt(elem.offsetTop);
+                document.onmousemove = function(e) {
+                    var event = e || window.event;
+                    elem.style.left = event.pageX - disX + "px";
+                    elem.style.top = event.pageY - disY + "px";
+                }
+                elem.onmouseup = function() {
+                    document.onmousemove = null;
+                    cookie
+                        .setCookie('left', elem.style.left, 1000)
+                        .setCookie('top', elem.style.top, 1000);
+                }
+            }
+        }
+        drag(demo);
+        cookie.getCookie('top', function (top) {
+            if (top == null) {
+                return false;
+            }
+            demo.style.top = top;
+        }).getCookie('left', function (left) {
+            if (left == null) {
+                return false;
+            }
+            demo.style.left = left;
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .wrapper div{
+            text-align: center;
+        }
+        .demo{
+            width: 0px;
+            height: 0px;
+            border: 20px solid transparent;
+            border-bottom-color: black;
+            border-bottom-width: 150px;
+            border-top-width: 150px;
+            transform-origin: center 100%;
+            transform: translateX(168px) translateY(-153px) rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="main"></div> -->
+    <div class="wrapper">
+        <div>北</div>
+        <div class="demo"></div>
+        <div>南</div>
+    </div>
+    <script>
+        // 陀螺仪 只有带有陀螺仪的设备才支持体感
+        // 苹果设备只有在https协议的情况才能使用这些接口
+        // alpha: 指北(指南针) [0, 360) 当为0的时候指北,180指南
+        // beta: 平放时beta值为0,如果将手机立起来(充电口接触桌面) 直立的时候beta为90
+        // gamma: 平放的时候gamma值为0,如果将手机立起来(电源键接触桌面) 直立的时候gamma值为90
+        // window.addEventListener('deviceorientation', (event) => {
+        //     document.getElementById('main').innerHTML = 'alpha:' + event.alpha + '<br/>' + 'beta:' + event.beta + '<br/>' + 'gamma:' + event.gamma;
+        // });
+
+        // 判断手机摇晃情况
+        // 将三个轴的加速度显示出来
+        // window.addEventListener('devicemotion', (e) => {
+        //     document.getElementById('main').innerHTML = e.acceleration.x + '<br/>' + e.acceleration.y + '<br/>' + e.acceleration.y;
+        //     if(Math.abs(e.acceleration.x) > 15 || Math.abs(e.acceleration.y) > 15 || Math.abs(e.acceleration.z) > 15) {
+        //         alert('在晃');
+        //     }
+        // });
+
+        // 手机访问电脑
+        // 1. 手机和电脑要在同一局域网下
+        // 2. 获取电脑ip地址
+        // 3. 在手机上输入相应的ip地址和端口
+        // 10.4.114.51
+        
+        var demo = document.getElementsByClassName('demo')[0];
+        window.addEventListener('deviceorientation', (event) => {
+            var deg = Math.round(event.alpha);
+            demo.style.transform = 'translateX(168px) translateY(-153px) rotate(' + deg + 'deg)';
+        });
+    </script>
+</body>
+</html>

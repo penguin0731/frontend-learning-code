@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 50px auto;
+            display: flex;
+            overflow: hidden;
+            resize: both;
+        }
+        .headImg{
+            flex: 0 0 33%;
+            background-color: red;
+            box-sizing: border-box;
+            margin: 10px;
+            background-image: url(https://ims-cdn0.sm.cn/ims?kt=MD5&at=smk&key=87ECEDE6E386C4C1C074447595BE7C33&tv=0_0&x.jpg);
+            background-size: 100% 100%;
+        }
+        .content{
+            flex: 1 1 auto;
+            /* background-color:blue; */
+            box-sizing: border-box;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+        .content .name{
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content p{
+            margin: 5px 0;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="headImg"></div>
+        <div class="content">
+            <span class="name">刘德华</span>
+            <p>演员、歌手、香港“四大天王”之一</p>
+            <p>1961年09月27日（57岁）</p>
+        </div>
+    </div>
+</body>
+</html>

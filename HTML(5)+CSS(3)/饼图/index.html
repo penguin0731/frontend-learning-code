@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="pie"></div>
+	<style>
+		.pie{
+			width: 140px;
+			height: 140px;
+			background-color: #8BC34A;
+			border-radius: 50%;
+			background-image: linear-gradient(to right, transparent 50%, #655 0);
+		}
+
+		.pie::before{
+			content: "";
+			display: block;
+			margin-left: 50%;
+			height: 100%;
+			border-radius: 0 100% 100% 0/50%;
+			background-color: inherit;
+			transform-origin: left;
+
+			
+			/* 显示10%的比率,旋转值为0.1*360=36  */
+			transform: rotate(.1turn); 
+			/* 显示20%的比率,旋转值为0.2*360=72  */
+			/*transform: rotate(.2turn); */
+			/* 显示30%的比率,旋转值为0.3*360=108  */
+			/*transform: rotate(.3turn); */
+
+		}
+	</style>
+</body>
+</html>

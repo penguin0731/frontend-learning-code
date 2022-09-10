@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 马 */
+        /* @keyframes horse{
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: -2400px 0;
+            }
+        }
+        .horse{
+            width: 200px;
+            height: 100px;
+            background-image: url(./img/horse.png);
+            background-position: 0 0;
+            animation: horse .7s steps(12, end) infinite;
+        } */
+
+
+        /* 钟表 */
+        /* @keyframes second{
+            0%{
+                transform: rotate(180deg);
+            }
+            100%{
+                transform: rotate(540deg);
+            }
+        }
+        @keyframes minute{
+            0%{
+                transform: rotate(180deg);
+            }
+            100%{
+                transform: rotate(540deg);
+            }
+        }
+        .clock{
+            position: relative;
+            width: 512px;
+            height: 512px;
+            background-image: url(./img/clock.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .hour, .minute, .second{
+            position: absolute;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform-origin: center 16px;
+            transform: rotate(180deg);
+        }
+        .second{
+            width: 16px;
+            height: 278px;
+            top: 178px;
+            left: 246px;
+            background-image: url(./img/second.png);
+            transform-origin: center 76px;
+            animation: second 60s steps(60, end) forwards infinite;
+            z-index: 3;
+        }
+        .minute{
+            width: 32px;
+            height: 218px;
+            top: 238px;
+            left: 238px;
+            background-image: url(./img/minute.png);
+            animation: minute 3600s steps(60, end) forwards infinite;
+            z-index: 2
+        }        
+        .hour{
+            width: 32px;
+            height: 148px;
+            top: 238px;
+            left: 238px;
+            background-image: url(./img/hour.png);
+            z-index: 1;
+        } */
+
+
+        /* 打字效果 */
+        /* @keyframes fontDance{
+            0%{
+                border-left-color: rgba(0, 0, 0, 1);
+            }
+            50%{
+                border-left-color: rgba(0, 0, 0, 0);
+            }
+            100%{
+                border-left-color: rgba(0, 0, 0, 1);
+            }
+        }
+        @keyframes font{
+            0%{
+                left: 0;
+            }
+            100%{
+                left: 100%;
+            }
+        }
+        .font{
+            position: relative;
+            display: inline-block;
+            height: 100px;
+            line-height: 100px;
+            font-size: 70px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .font::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 90px;
+            left: 0;
+            top: 10px;
+            background-color: #fff;
+            box-sizing: border-box;
+            border-left: 2px solid black;
+            animation: fontDance 1s steps(1, end) infinite, font 11s steps(11, end) forwards;
+        } */
+
+
+        .wrapper{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: calc(50% - 100px);
+            top: calc(50% - 100px);
+            transform-style: preserve-3d;
+            transform: rotateX(-45deg) rotateY(-36deg);
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .num{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 0;
+            top: 0;
+            text-align: center;
+            line-height: 200px;
+            border: 2px solid black;
+        }
+        .num:nth-of-type(1){
+            transform: rotateY(0deg) translateZ(100px);
+        }
+        .num:nth-of-type(2){
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .num:nth-of-type(3){
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .num:nth-of-type(4){
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .num:nth-of-type(5){
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .num:nth-of-type(6){
+            transform: rotateY(90deg) translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 马 -->
+    <!-- <div class="horse"></div> -->
+
+    <!-- 钟表 -->
+    <!-- <div class="clock">
+        <div class="second"></div>
+        <div class="minute"></div>
+        <div class="hour"></div>
+    </div> -->
+
+    <!-- 打字效果 -->
+    <!-- <div class="font">abcdefghijk</div> -->
+
+    <div class="wrapper">
+        <div class="num">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+    </div>
+
+    <script>
+        // document.body.onmousemove = function(e) {
+        //     this.style.perspectiveOrigin = '' + e.pageX + 'px ' + e.pageY + 'px';
+        // }
+    </script>
+</body>
+</html>
