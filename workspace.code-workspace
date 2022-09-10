@@ -1,0 +1,50 @@
+{
+  "folders": [
+    {
+      "path": "HTML(5)+CSS(3)"
+    },
+    {
+      "path": "JavaScript"
+    },
+    {
+      "path": "jQuery"
+    },
+    {
+      "path": "网络"
+    },
+    {
+      "path": "webpack"
+    },
+    {
+      "path": "Vue"
+    },
+    {
+      "path": "React"
+    },
+    {
+      "path": "NodeJS"
+    },
+    {
+      "path": "myProject"
+    },
+    {
+      "path": "数据结构与算法"
+    },
+    {
+      "path": "Vue3"
+    },	
+    {
+      "path": "typescript"
+    },
+    {
+      "path": "threejs"
+    },
+    {
+      "path": "cesiumjs"
+    },
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Vue",
+    "git.ignoreLimitWarning": true
+  }
+}
