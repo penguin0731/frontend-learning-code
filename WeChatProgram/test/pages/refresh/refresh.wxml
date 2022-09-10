@@ -1,0 +1,6 @@
+<view class="wrapper">
+  <view class="page-section">
+    <image src="{{ imgUrl }}"></image>
+    <text>{{ imgTitle }}</text>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+/* pages/coverView/coverView.wxss */
+#video{
+  width: 100%;
+  position: relative;
+}
+.img{
+  width: 100rpx;
+}
+.pause, .play{
+  position: absolute;
+  top: 250rpx;
+  left: 25rpx;
+}

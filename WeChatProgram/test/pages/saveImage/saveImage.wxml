@@ -1,0 +1,10 @@
+<button bindtap="chooseImage">获取图片</button>
+<button bindtap="getImageInfo">获取图片信息</button>
+<button bindtap="previewImage">预览图片</button>
+<button bindtap="download">下载图片</button>
+<button bindtap="saveImg">保存图片到想相册</button>
+
+<scroll-view>
+  <image class="img" wx:for="{{ updateImage }}" src="{{ item }}"></image>
+</scroll-view>
+  

@@ -1,0 +1,4 @@
+<view class="wrapper">
+  <view>this is worker demo</view>
+  <button bindtap="touch">触发主线程</button>
+</view>

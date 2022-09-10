@@ -1,0 +1,7 @@
+<scroll-view scroll-y style="height: 100%;" scroll-top='{{ topNum }}' bindscroll="scroll">
+  <view class="scroll-view1">top1</view>
+  <view class="scroll-view2">top2</view>
+  <view class="goTop" hidden="{{ !cangotTop }}" catchtap="goTop">
+    <view>回到顶部</view>
+  </view>
+</scroll-view>

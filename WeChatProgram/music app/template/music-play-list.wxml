@@ -1,0 +1,10 @@
+<template name="music-play-list">
+  <view class="music-play-list">
+    <view class="music-play-list-item">
+      <image class="music-play-list-iamge" src=""></image>
+      <view class="music-play-list-text">
+        <!-- <text>最近播放</text> -->
+      </view>
+    </view>
+  </view>
+</template>

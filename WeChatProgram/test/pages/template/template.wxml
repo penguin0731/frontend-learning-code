@@ -1,0 +1,7 @@
+<!-- 定义模板 -->
+<template name="studentInfo">
+  <block wx:for="{{studentArr}}">
+    <view>姓名:{{ item.name }}</view>
+    <view>年龄:{{ item.age }}</view>
+  </block>
+</template>

@@ -1,0 +1,14 @@
+<view>
+  <video src="{{src}}" controls id="myVideo"></video>
+  <view>
+    <button bindtap="bindBtnTap">获取视频</button>
+  </view>
+</view>
+
+<view>
+  <video src="{{src}}" id="danmuVideo" danmu-list="{{danmulist}}" enable-danmu danmu-btn></video>
+  <view>
+    <input bindblur="bindInpBlur" value="{{inputValue}}" placeholder="说点什么吧"></input>
+    <button bindtap="sendDanmu">发送弹幕</button>
+  </view>
+</view> 

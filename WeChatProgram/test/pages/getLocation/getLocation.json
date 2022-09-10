@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "获取当前地理位置",
+  "navigationBarTextStyle": "white"
+}

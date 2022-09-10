@@ -1,0 +1,11 @@
+cover-view的覆盖在组件之上
+<video id="video" src="{{src}}" controls="true">
+
+  <cover-view class="pause" wx:if="{{playing}}" bindtap="pause">
+    <cover-image class="img" src="../../images/stop.png"></cover-image>
+  </cover-view>
+  <cover-view class="play" wx:else bindtap="play">
+    <cover-image class="img" src="../../images/play.png"></cover-image>
+  </cover-view>
+
+</video>

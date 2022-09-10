@@ -1,0 +1,19 @@
+<view>
+  <scroll-view scroll-x>
+    <view class="top-nav">
+      <block wx:for="{{ navigatorArr }}">
+        <view class="nav-item {{ classArr[index] }}" bindtap="campusActivity" data-index="{{ index }}">{{ item }}</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+<view>
+  <swiper style="height: {{swiperRPXHeight}}rpx" current="{{ currentTap }}">
+    <block wx:for="{{ navigatorArr }}">
+      <swiper-item class="{{index % 2 == 0 ? 'bg-red' : 'bg-green'}}">
+        {{ item }}页面
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

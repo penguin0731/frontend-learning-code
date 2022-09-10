@@ -1,0 +1,19 @@
+.scroll-view1, .scroll-view2{
+  height: 1000rpx;
+  font-size: 5vh;
+  color: #000;
+}
+.scroll-view1{
+  background: greenyellow;
+}
+.scroll-view2{
+  background: red;
+}
+.goTop{
+  display: inline-block;
+  position: fixed;
+  right: 30rpx;
+  bottom: 30rpx;
+  background-color: wheat;
+  padding: 5rpx 10rpx;
+}

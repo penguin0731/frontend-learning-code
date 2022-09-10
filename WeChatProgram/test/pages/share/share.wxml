@@ -1,0 +1,1 @@
+<button bindtap="onShare" open-type="share">分享转发</button>

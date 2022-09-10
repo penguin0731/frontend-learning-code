@@ -1,0 +1,18 @@
+.container{
+  background: gray;
+}
+.page-section{
+  width: 90%;
+  padding: 10rpx;
+  background: white;
+  border-radius: 10rpx;
+  margin-top: 40rpx;
+}
+
+.page-section button{
+  margin: 10rpx 0;
+}
+
+.bold{
+  font-weight: bold;
+}

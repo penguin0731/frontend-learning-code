@@ -1,0 +1,138 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.0",
+	"appid": "wx2ed824b8c9110ae3",
+	"projectname": "test",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "个人中心",
+					"pathName": "pages/person/person",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/navigator/navigator",
+					"pathName": "pages/navigator/navigator",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "相机",
+					"pathName": "pages/camera/camera",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/mapDemo/mapDemo",
+					"pathName": "pages/mapDemo/mapDemo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/chat/chat",
+					"pathName": "pages/chat/chat",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/form/form",
+					"pathName": "pages/form/form",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "上拉刷新和下拉刷新",
+					"pathName": "pages/refresh/refresh",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录_登录状态_获取用户信息",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "获取当前地理位置",
+					"pathName": "pages/getLocation/getLocation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分享转发",
+					"pathName": "pages/share/share",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "worker线程",
+					"pathName": "pages/worker/worker",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "pages/animationDemo/animationDemo",
+					"pathName": "pages/animationDemo/animationDemo",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

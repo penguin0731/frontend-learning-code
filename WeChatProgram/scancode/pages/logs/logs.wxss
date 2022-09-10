@@ -1,0 +1,11 @@
+.weui-cell_bd{
+  overflow: hidden;
+  padding-right: 20rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.weui-loadmore__tips_in-line{
+  background-color: #f8f8f8;
+  color: #999;
+}

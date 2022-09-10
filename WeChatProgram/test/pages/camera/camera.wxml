@@ -1,0 +1,7 @@
+<!-- 相机模式 -->
+<camera mode="front" device-position="back" flash="auto" frame-size="large">
+  <cover-view bindtap="takePhoto"></cover-view>
+</camera>
+<!-- <button type="primary" bindtap="takePhoto">拍照</button> -->
+<!-- 扫码模式 -->
+<!-- <camera mode="scanCode" device-position="back" flash="auto" frame-size="large"></camera> -->

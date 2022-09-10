@@ -1,0 +1,11 @@
+<!--pages/bind/bind.wxml-->
+<view>name:{{ studentName }}</view>
+<view class="{{ flag ? 'color-red' : 'color-blue' }}">
+  hello world
+</view>
+<view id="item-{{ id }}">
+  微信小程序
+</view>
+<view>
+  '学号'{{ a + b }}
+</view>

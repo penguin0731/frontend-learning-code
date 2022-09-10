@@ -1,0 +1,18 @@
+<view>全方位移动</view>
+<movable-area class="area">
+  <movable-view direction="all" class="view bg-red"></movable-view>
+</movable-area>
+
+<view>在一个area里有多个view，并且方向不一样</view>
+<movable-area class="area">
+  <!-- 只能水平移动 -->
+  <movable-view direction="horizontal" class="view bg-red"></movable-view>
+  <!-- 只能垂直移动 -->
+  <movable-view direction="vertical" class="view bg-blue"></movable-view>
+</movable-area>
+
+<view>固定位置</view>
+<view>设置x,y坐标，同时direction: none</view>
+<movable-area class="area">
+  <movable-view direction="none" x="150" y="30" class="view bg-blue"></movable-view>
+</movable-area>

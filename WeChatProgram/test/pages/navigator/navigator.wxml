@@ -1,0 +1,5 @@
+<navigator target="self" url="/pages/form/form" open-type="navigate">跳转操作</navigator>
+<navigator target="self" url="/pages/form/form" open-type="switchTab">跳转TabBar页面</navigator>
+
+
+<navigator target="miniProgram">小程序间跳转</navigator>

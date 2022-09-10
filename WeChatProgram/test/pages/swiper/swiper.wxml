@@ -1,0 +1,13 @@
+<view>
+  <swiper autoplay indicator-dots="true" interval="3000">
+    <swiper-item>
+      <image src="https://tse1-mm.cn.bing.net/th?id=OET.938a8991ddef4d159678ccc157e2a39d&w=272&h=135&c=7&rs=1&o=5&pid=1.9"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://tse1-mm.cn.bing.net/th?id=OET.4fade16cde7f4c96afb0dcba4fe92eaf&w=272&h=135&c=7&rs=1&o=5&pid=1.9"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://tse1-mm.cn.bing.net/th?id=OET.ba0cf3f6e2274ba9ac3a5873094e445d&w=272&h=135&c=7&rs=1&o=5&pid=1.9"></image>
+    </swiper-item>
+  </swiper>
+</view>

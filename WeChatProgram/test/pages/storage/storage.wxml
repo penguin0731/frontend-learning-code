@@ -1,0 +1,5 @@
+<button bindtap="setStorage">设置缓存</button>
+<button bindtap="removeStorage">移除指定缓存</button>
+<button bindtap="getStorage">获取指定缓存</button>
+<button bindtap="getStorageInfo">获取所有缓存</button>
+<button bindtap="clearStorage">清楚所有缓存</button>

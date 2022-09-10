@@ -1,0 +1,1 @@
+<button bindtap="imageChoose">图片选择</button>

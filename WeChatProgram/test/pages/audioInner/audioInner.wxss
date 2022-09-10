@@ -1,0 +1,22 @@
+.audio-stop, .audio-play{
+  width: 250rpx;
+  height: 250rpx;
+  position: relative;
+  top: 12rpx;
+  left: 250rpx;
+  border-radius: 50%;
+  border: 2rpx solid black;
+}
+.audio-stop-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.audio-stop-play{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 75rpx;
+  left: 75rpx;
+  border-radius: 50%;
+}

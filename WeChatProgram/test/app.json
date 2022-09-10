@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/icon/icon",
+    "pages/logs/logs",
+    "pages/reg/reg",
+    "pages/swiper/swiper",
+    "pages/bind/bind",
+    "pages/templateDemo/templateDemo",
+    "pages/event/event",
+    "pages/eventDemo/eventDemo",
+    "pages/audio/audio",
+    "pages/audioInner/audioInner",
+    "pages/video/video",
+    "pages/movableView/movable",
+    "pages/coverView/coverView",
+    "pages/movableDemo/movabledemo",
+    "pages/rich-text/rich-text",
+    "pages/progress/progress",
+    "pages/form/form",
+    "pages/person/person",
+    "pages/navigator/navigator",
+    "pages/camera/camera",
+    "pages/camera/showPhoto",
+    "pages/map/map",
+    "pages/mapDemo/mapDemo",
+    "pages/opendata/opendata",
+    "pages/functionDemo/functionDemo",
+    "pages/requestDemo/requestDemo",
+    "pages/downloadFile/downloadFile",
+    "pages/uploadFile/uploadFile",
+    "pages/chat/chat",
+    "pages/recordDemo/recordDemo",
+    "pages/saveImage/saveImage",
+    "pages/loading/loading",
+    "pages/storage/storage",
+    "pages/clipboard/clipboard",
+    "pages/scancode/scancode",
+    "pages/goTop/goTop",
+    "pages/goTop/scrollView",
+    "pages/animation/animation",
+    "pages/animationDemo/animationDemo",
+    "pages/refresh/refresh",
+    "pages/login/login",
+    "pages/getLocation/getLocation",
+    "pages/share/share",
+    "pages/worker/worker"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "我的微信",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "workers": "worker"
+}

@@ -1,0 +1,10 @@
+<view class="page">
+  <text>top</text>
+  <navigator url="/pages/goTop/scrollView">区块内的回到顶部</navigator>
+</view>
+
+<view class="goTop" hidden="{{!show}}"  bindtap="gotTop">
+  <view>回到顶部</view>
+</view>
+
+

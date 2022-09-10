@@ -1,0 +1,8 @@
+<template name="singer-list">
+  <view class="singer-list">
+    <view class="singer-item" wx:for="{{ templateData }}">
+      <image class="singer-image" src="{{ item.image }}"></image>
+      <view class="singer-text">{{ item.singer }}</view>
+    </view>
+  </view>
+</template>

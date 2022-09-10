@@ -1,0 +1,17 @@
+.container{
+  font-family: "microsoft yahei";
+}
+.text{
+  color: white;
+  font-size: 26rpx;
+  text-align: center;
+  padding-top: 10vh;
+}
+.text text{
+  display: flex;
+  flex-direction: column;
+  height: 40rpx;
+}
+.img{
+  text-align: center;
+}

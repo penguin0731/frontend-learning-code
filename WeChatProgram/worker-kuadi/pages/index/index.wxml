@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="page-area">
+    <view class="row">
+      <picker mode="selector" bindchange="handlePickerChange" value="{{ index }}" range="{{ kuaidiList }}">
+        <view class="kuaidiCompany">
+          当前快递选择：{{ kuaidiList[index] }}
+        </view>
+      </picker>
+    </view>
+    <view class="row">
+      <text>快递单号</text>
+      <input bindinput="getCode" placeholder="输入快递单号"></input>
+    </view>
+    <button bindtap="searchKuaidi">查询</button>
+  </view>
+</view>

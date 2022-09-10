@@ -1,0 +1,12 @@
+/* pages/bind/bind.wxss */
+.color-red{
+  color: #ff0000;
+}
+.color-blue{
+  color: #0000ff;
+}
+#item-text{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: yellow;
+}
