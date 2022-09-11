@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <helloworld></helloworld>
+        <!-- 也可以写成单标签形式，但只能渲染一个 -->
+        <!-- 因为在.html文件的规范中，只有部分标签能够写出单标签形式，如img, br, input -->
+        <!-- 而我们自定义的组件不在该规范中，所以html只渲染一个 -->
+        <helloworld />
+        <helloworld />
+        <helloworld />
+    </div>
+
+
+    <script>
+        // 全局组件的定义
+        // Vue.component('helloworld', {
+        //     data() {
+        //         return {
+        //             msg: 'hello world!!'
+        //         }
+        //     },
+        //     template: '<div>{{ msg }}</div>'
+        // });
+
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            // 局部组件的定义
+            components: {
+                helloworld: {
+                    data() {
+                        return {
+                            msg: 'hello world!!'
+                        }
+                    },
+                    template: '<div>{{ msg }}</div>'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

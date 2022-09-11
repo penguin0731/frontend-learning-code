@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+    <!-- <div id="app">
+        {{name}}
+        {{age}}
+        {{arr}}
+        {{obj}}
+        {{obj.b}}
+    </div> -->
+
+    <div id="app">
+        <!-- {{ person() }} -->
+        {{ msg }}
+        <!-- {{ person }} -->
+    </div>
+    
+
+    <script>
+        // const vm = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         name: 'cxj',
+        //         age: 18,
+        //         arr: [1,2,3],
+        //         obj: {
+        //             a: '10',
+        //             b: '20'
+        //         }
+        //     }
+        // });
+
+        // 计算属性和侦听器
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'cxj',
+                age: 18,
+                msg: 'hello',
+                // person: ''
+            },
+            // mounted () {
+            //     this.getPerson();
+            // },
+            methods: {
+                // person () {
+                //     console.log('methods');
+                //     return `姓名：${this.name}，年龄：${this.age}`;
+                // },
+                getPerson () {
+                    this.person = `姓名：${this.name}，年龄：${this.age}`;
+                }
+            },
+            computed: {
+                person () {
+                    console.log('computed');
+                    return `姓名：${this.name}，年龄：${this.age}`;
+                }
+            },
+            watch: {
+                // name (newVal) {
+                //     // console.log(newVal);
+                //     this.person = `姓名：${this.name}，年龄：${this.age}`;
+                // },
+                // age (newVal) {
+                //     console.log(newVal);
+                //     this.person = `姓名：${this.name}，年龄：${this.age}`;
+                // }
+                // 等于
+                // name: {
+                //     handler () {
+                //         this.person = `姓名：${this.name}，年龄：${this.age}`;
+                //     },
+                //     // 是否立即执行该函数
+                //     immediate: true
+                // },
+                // age: {
+                //     handler () {
+                //         this.person = `姓名：${this.name}，年龄：${this.age}`;
+                //     }
+                // }
+            }
+        });
+
+        // 功能与上面watch的方法一样,一般是写实例里
+        // vm.$watch('name', () => {
+        //     console.log('name');
+        // }, {
+        //     immediate: true
+        // })
+
+    </script>
+</body>
+</html>

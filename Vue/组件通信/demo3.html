@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>当前计数：{{ count }}</div>
+        <hr>
+        <input :value="count" @input="handleInput($event.target.value)"></input>
+        <!-- <my-count v-model="count"></my-count> -->
+    </div>
+
+    <script>
+        // 组件的双向通信
+        // Vue.component('myCount', {
+        //     props: ['value'],
+        //     mounted () {
+        //         setInterval(() => {
+        //             let value = this.value + 1;
+        //             this.$emit('input', value);
+        //         }, 1000);
+        //     },
+        //     template: `<div>{{ value }}</div>`
+        // });
+
+        const vm = new Vue({
+            el: '#app',
+            props: ['value'],
+            data: {
+                count: 100
+            },
+            methods: {
+                handleInput (value) {
+                    console.log(value);
+                    this.count = value;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

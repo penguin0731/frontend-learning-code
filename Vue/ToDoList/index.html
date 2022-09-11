@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <input type="text" v-model.lazy="task" @keyup.enter="addTask">
+        <button type="submit" @click="addTask">提交</button>
+        <p>正在提交的任务：{{ task }}</p>
+        <h4>任务列表</h4>
+        <ul>
+            <li v-for="(task, index) in taskList" :key="index">
+                {{ task }}
+                <button type="submit" @click="deleteTask(index)">删除</button>
+            </li>
+            
+        </ul>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#demo',
+            data: {
+                task: '',
+                taskList: [],
+            },
+            methods: {
+                addTask () {
+                    if(!this.task) {
+                        return;
+                    }
+                    this.taskList.push(this.task);
+                    this.task = '';
+                },
+                deleteTask (index) {
+                    this.taskList.splice(index, 1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
