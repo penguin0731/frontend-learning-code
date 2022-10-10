@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import MyComp from './components/MyComp';
 import MyComp2 from './components/MyComp2';
 import MyComp3 from './components/MyComp3';
+import MyComp4 from './components/MyComp4';
 
 // const importAll = r => r.keys().map(r);
 // // 生成 ./assets/imgs/ 下所有图片的路径数组，根据需要调整
@@ -31,4 +32,7 @@ import MyComp3 from './components/MyComp3';
 // ReactDOM.render(<MyComp2/>, document.getElementById('root'))
 
 
-ReactDOM.render(<MyComp3/>, document.getElementById('root'))
+// ReactDOM.render(<MyComp3/>, document.getElementById('root'))
+
+
+ReactDOM.render(<MyComp4/>, document.getElementById('root'))
