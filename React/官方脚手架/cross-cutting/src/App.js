@@ -1,11 +1,13 @@
 // import Test from "./Test";
-import TestRenderProps from "./TestRenderProps";
+// import TestRenderProps from "./TestRenderProps";
+import TestHoc from "./TestHoc";
 
 function App() {
   return (
     <div className="App">
       {/* <Test /> */}
-      <TestRenderProps />
+      {/* <TestRenderProps /> */}
+      <TestHoc />
     </div>
   );
 }

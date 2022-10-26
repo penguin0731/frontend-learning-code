@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import '../style.css'
+import "../style.css";
 
 export default class MouseListener extends Component {
   constructor(props) {
@@ -10,16 +10,22 @@ export default class MouseListener extends Component {
   divRef = React.createRef();
 
   handleMouseMove = (event) => {
-    const { left, top } = this.divRef.current.getBoundingClientRect()
+    const { left, top } = this.divRef.current.getBoundingClientRect();
     this.setState({
       x: event.clientX - left,
       y: event.clientY - top,
     });
-  }
+  };
 
   render() {
-    return <div ref={this.divRef} className="container" onMouseMove={this.handleMouseMove}>
-        {this.props.render ? this.props.render(this.state) : '默认值'}
-    </div>;
+    return (
+      <div
+        ref={this.divRef}
+        className="container"
+        onMouseMove={this.handleMouseMove}
+      >
+        {this.props.render ? this.props.render(this.state) : "默认值"}
+      </div>
+    );
   }
 }
