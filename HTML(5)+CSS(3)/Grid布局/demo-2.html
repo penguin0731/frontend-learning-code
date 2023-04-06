@@ -16,46 +16,46 @@
 
             /* 设置元素为网格容器 */
             display: grid;
-            /* 设置列宽，列数为3，超出的元素会自动换行 */
-            /* grid-template-columns: 200px 200px 200px; */
-            /* 使用repeat()函数简化重复值 */
-            /* grid-template-columns: repeat(3, 200px); */
-            /* 使用auto-fill关键字，列数不固定，将根据容器的宽度自动填充 */
-            /* grid-template-columns: repeat(auto-fill, 200px); */
             /* 设置第一列的列宽为200px，设置第二第三列均为剩余空间的40% */
-            grid-template-columns: 200px repeat(2, .4fr);
+            grid-template-columns: repeat(4, 1fr);
             /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
-            grid-template-rows: 200px;
-            /* 设置列间距 */
-            /* column-gap: 20px; */
-            /* 设置行间距 */
-            /* row-gap: 5px; */
-            /* gap: <row-gap> <column-gap> */
-            gap: 5px 20px;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            grid-template-areas: 
+                "one two two three"
+                "four two two three"
+                "four five five five"
+                "six six six six";
         }
 
         .one {
             background-color: #19CAAD;
+            grid-area: one;
         }
 
         .two {
             background-color: #8CC7B5;
+            grid-area: two;
         }
 
         .three {
             background-color: #D1BA74;
+            grid-area: three;
         }
 
         .four {
             background-color: #BEE7E9;
+            grid-area: four;
         }
 
         .five {
             background-color: #E6CEAC;
+            grid-area: five;
         }
 
         .six {
             background-color: #ECAD9E;
+            grid-area: six;
         }
     </style>
 </head>
@@ -68,8 +68,6 @@
         <div class="four"></div>
         <div class="five"></div>
         <div class="six"></div>
-        <div class="one"></div>
-        <div class="two"></div>
     </div>
 </body>
 
