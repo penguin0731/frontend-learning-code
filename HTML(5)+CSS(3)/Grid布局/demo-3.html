@@ -25,7 +25,15 @@
             /* 超出第一行的元素，将占用50px的行高 */
             grid-auto-rows: 50px;
             /* 超出第三列的元素，将占用100px的列宽 */
-            grid-auto-columns: 100px;
+            /* grid-auto-columns: 100px; */
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 200%;
+            color: #fff;
         }
 
         .one {
@@ -43,9 +51,9 @@
         .four {
             background-color: #BEE7E9;
             /* 指定该项目占据的列的起始位置 */
-            grid-column-start: 4;
+            /* grid-column-start: 4; */
             /* 指定该项目占据的列的结束位置 */
-            grid-column-end: 5;
+            /* grid-column-end: 5; */
         }
 
         .five {
@@ -55,17 +63,32 @@
         .six {
             background-color: #ECAD9E;
         }
+
+        .seven {
+            background-color: #BEEDC7;
+        }
+
+        .eight {
+            background-color: #F4606C;
+        }
+
+        .nine {
+            background-color: #A0EEE1;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-        <div class="four"></div>
-        <div class="five"></div>
-        <div class="six"></div>
+        <div class="item one">One</div>
+        <div class="item two">Two</div>
+        <div class="item three">Three</div>
+        <div class="item four">Four</div>
+        <div class="item five">Five</div>
+        <div class="item six">Six</div>
+        <div class="item seven">Seven</div>
+        <div class="item eight">Eight</div>
+        <div class="item nine">Nine</div>
     </div>
 </body>
 

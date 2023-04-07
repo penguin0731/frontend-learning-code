@@ -9,7 +9,7 @@
     <style>
         .wrapper {
             width: 70%;
-            height: 500px;
+            height: 300px;
             margin: 100px auto;
             border: 2px solid black;
             padding: 10px;
@@ -25,13 +25,21 @@
             /* 设置第一列的列宽为200px，设置第二第三列均为剩余空间的40% */
             grid-template-columns: 200px repeat(2, .4fr);
             /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
-            grid-template-rows: 200px;
+            grid-template-rows: 100px;
             /* 设置列间距 */
-            /* column-gap: 20px; */
+            /* column-gap: 10px; */
             /* 设置行间距 */
-            /* row-gap: 5px; */
+            /* row-gap: 20px; */
             /* gap: <row-gap> <column-gap> */
-            gap: 5px 20px;
+            gap: 20px 10px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 200%;
+            color: #fff;
         }
 
         .one {
@@ -57,19 +65,32 @@
         .six {
             background-color: #ECAD9E;
         }
+
+        .seven {
+            background-color: #BEEDC7;
+        }
+
+        .eight {
+            background-color: #F4606C;
+        }
+
+        .nine {
+            background-color: #A0EEE1;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-        <div class="four"></div>
-        <div class="five"></div>
-        <div class="six"></div>
-        <div class="one"></div>
-        <div class="two"></div>
+        <div class="item one">One</div>
+        <div class="item two">Two</div>
+        <div class="item three">Three</div>
+        <div class="item four">Four</div>
+        <div class="item five">Five</div>
+        <div class="item six">Six</div>
+        <div class="item seven">Seven</div>
+        <div class="item eight">Eight</div>
+        <div class="item nine">Nine</div>
     </div>
 </body>
 

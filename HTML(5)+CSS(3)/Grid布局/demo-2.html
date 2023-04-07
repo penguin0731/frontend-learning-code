@@ -17,17 +17,26 @@
             /* 设置元素为网格容器 */
             display: grid;
             /* 设置第一列的列宽为200px，设置第二第三列均为剩余空间的40% */
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
-            grid-template-rows: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
             /* 行列间距10px */
             gap: 10px;
             /* 定义区域 */
             grid-template-areas: 
-                "one  two  two  three"
-                "four two  two  three"
-                "four five five five"
-                "six  six  six  .";
+                "one   two   two   three four"
+                "five  two   two   three four"
+                "five  six   seven three four"
+                ".     six   seven nine  four"
+                "eight eight seven nine  four";
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 200%;
+            color: #fff;
         }
 
         .one {
@@ -59,17 +68,35 @@
             background-color: #ECAD9E;
             grid-area: six;
         }
+
+        .seven {
+            background-color: #BEEDC7;
+            grid-area: seven;
+        }
+
+        .eight {
+            background-color: #F4606C;
+            grid-area: eight;
+        }
+
+        .nine {
+            background-color: #A0EEE1;
+            grid-area: nine;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-        <div class="four"></div>
-        <div class="five"></div>
-        <div class="six"></div>
+        <div class="item one">One</div>
+        <div class="item two">Two</div>
+        <div class="item three">Three</div>
+        <div class="item four">Four</div>
+        <div class="item five">Five</div>
+        <div class="item six">Six</div>
+        <div class="item seven">Seven</div>
+        <div class="item eight">Eight</div>
+        <div class="item nine">Nine</div>
     </div>
 </body>
 
