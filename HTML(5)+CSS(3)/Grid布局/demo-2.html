@@ -20,12 +20,14 @@
             grid-template-columns: repeat(4, 1fr);
             /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
             grid-template-rows: repeat(4, 1fr);
+            /* 行列间距10px */
             gap: 10px;
+            /* 定义区域 */
             grid-template-areas: 
-                "one two two three"
-                "four two two three"
+                "one  two  two  three"
+                "four two  two  three"
                 "four five five five"
-                "six six six six";
+                "six  six  six  .";
         }
 
         .one {
