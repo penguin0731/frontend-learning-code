@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 70%;
+            /* height: 500px; */
+            margin: 100px auto;
+            border: 2px solid black;
+            padding: 10px;
+
+            /* 设置元素为网格容器 */
+            display: grid;
+            /* 设置列宽，列数为3，超出的元素会自动换行 */
+            grid-template-columns: 200px 200px 200px;
+            /* 设置行高，行数为1 */
+            grid-template-rows: 100px;
+            /* 行列间距为10px */
+            gap: 10px;
+            /* 超出第一行的元素，将占用50px的行高 */
+            grid-auto-rows: 50px;
+            /* 超出第三列的元素，将占用100px的列宽 */
+            grid-auto-columns: 100px;
+        }
+
+        .one {
+            background-color: #19CAAD;
+        }
+
+        .two {
+            background-color: #8CC7B5;
+        }
+
+        .three {
+            background-color: #D1BA74;
+        }
+
+        .four {
+            background-color: #BEE7E9;
+            /* 指定该项目占据的列的起始位置 */
+            grid-column-start: 4;
+            /* 指定该项目占据的列的结束位置 */
+            grid-column-end: 5;
+        }
+
+        .five {
+            background-color: #E6CEAC;
+        }
+
+        .six {
+            background-color: #ECAD9E;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+        <div class="six"></div>
+    </div>
+</body>
+
+</html>
