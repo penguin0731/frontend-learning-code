@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 70%;
+            height: 300px;
+            margin: 100px auto;
+            border: 2px solid black;
+            padding: 10px;
+
+            /* 设置元素为网格容器 */
+            display: grid;
+            /* 设置列宽，列数为3，超出的元素会自动换行 */
+            /* grid-template-columns: 200px 300px 200px; */
+            /* 设置行高100px，行数为2 */
+            grid-template-rows: 100px 100px;
+            /* 设置隐式网格的列宽为150px */
+            grid-auto-columns: 150px;
+            /* 行列间距10px */
+            gap: 10px;
+            /* 设置隐式网格的行高为100px */
+            /* grid-auto-rows: 100px; */
+            /* 先行后列 */
+            /* grid-auto-flow: row dense; */
+            /* 先列后行 */
+            grid-auto-flow: column;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 200%;
+            color: #fff;
+        }
+
+        .one {
+            background-color: #19CAAD;
+        }
+
+        .two {
+            background-color: #8CC7B5;
+        }
+
+        .three {
+            background-color: #D1BA74;
+        }
+
+        .four {
+            background-color: #BEE7E9;
+        }
+
+        .five {
+            background-color: #E6CEAC;
+        }
+
+        .six {
+            background-color: #ECAD9E;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .seven {
+            background-color: #BEEDC7;
+        }
+
+        .eight {
+            background-color: #F4606C;
+        }
+
+        .nine {
+            background-color: #A0EEE1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="item one">One</div>
+        <div class="item two">Two</div>
+        <div class="item three">Three</div>
+        <div class="item four">Four</div>
+        <div class="item five">Five</div>
+        <div class="item six">Six</div>
+        <div class="item seven">Seven</div>
+        <div class="item eight">Eight</div>
+        <div class="item nine">Nine</div>
+    </div>
+</body>
+
+</html>
