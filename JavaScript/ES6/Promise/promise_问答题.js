@@ -11,14 +11,15 @@
 
 
 // 2. 结果是?
-// new Promise((res, rej) => {
-//     console.log(1);
-//     // 这里不调用不执行
-//     res();
-// }).then(() => {
-//     console.log(3);
-// });
-// console.log(2);
+new Promise((res, rej) => {
+    console.log(1);
+    // 这里不调用不执行
+    res();
+    console.log(4);
+}).then(() => {
+    console.log(3);
+});
+console.log(2);
 // 答: 1 2 3
 // resolve不调用不执行,并且是异步执行
 
@@ -81,15 +82,15 @@
 
 
 // 7. 答案是?
-try{
-    console.log(1);
-    setTimeout(function () {
-        throw new Error('cxj');
-    }, 0);
-}catch(e) {
-    console.log(3);
-}
-console.log(2);
+// try{
+//     console.log(1);
+//     setTimeout(function () {
+//         throw new Error('cxj');
+//     }, 0);
+// }catch(e) {
+//     console.log(3);
+// }
+// console.log(2);
 // 答: 1 2 报错
 // try catch只能捕获当前线程的异常,不能捕获异步的异常
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input" type="text">
+    <script>
+        var input = document.getElementById('input');
+        var isComposition = false;
+        function search() {
+            console.log('搜索内容：', input.value);
+        }
+        input.addEventListener('input', function () {
+            !isComposition && search();
+        });
+        input.addEventListener('compositionstart', function () {
+            console.log('文本合成开始');
+            isComposition = true;
+        });
+        // 文本合成结束事件的触发在input事件之后，所以要手动触发一次search
+        input.addEventListener('compositionend', function () {
+            console.log('文本合成结束');
+            isComposition = false;
+            search();
+        });
+    </script>
+</body>
+
+</html>
