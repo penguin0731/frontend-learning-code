@@ -17,7 +17,8 @@ export function resumeTrack() {
   shouldTrack = true;
 }
 
-export function effect(fn) {
+export function effect(fn, options = {}) {
+  const { lazy = false } = options;
   const effectFn = () => {
     try {
       activeEffect = effectFn;
@@ -31,6 +32,11 @@ export function effect(fn) {
   };
   // 在执行函数上添加一个deps属性记录这个执行函数所在的依赖集合
   effectFn.deps = [];
+  effectFn.options = options;
+  // 延迟执行的话，只将执行函数返回，由开发者决定执行时机
+  if (lazy) {
+    return effectFn;
+  }
   return effectFn();
 }
 
@@ -54,7 +60,8 @@ export function tracker(target, opType, key) {
     targetMap.set(target, propMap);
   }
   // 获取opTypeMap
-  if (opType === TrackTypeMap.ITERATE) { // 如果是遍历操作，则将属性名设置为遍历属性
+  if (opType === TrackTypeMap.ITERATE) {
+    // 如果是遍历操作，则将属性名设置为遍历属性
     key = ITERATE_KEY;
   }
   let opTypeMap = propMap.get(key);
@@ -84,7 +91,12 @@ export function trigger(target, opType, key) {
   effectFns.forEach((effectFn) => {
     // 如果派发更新的函数和依赖收集的函数是同一个（也就是读写都是在同一个函数中，如 a++），则跳过
     if (effectFn === activeEffect) return;
-    effectFn(); // 派发更新，重新执行执行函数，再次触发依赖收集，等待下次派发更新
+    // 多次触发派发更新时，由开发者决定是否继续派发更新
+    if (effectFn.options.scheduler) {
+      effectFn.options.scheduler(effectFn);
+    } else {
+      effectFn(); // 派发更新，重新执行执行函数，再次触发依赖收集，等待下次派发更新
+    }
   });
 }
 
