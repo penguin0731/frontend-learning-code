@@ -1,0 +1,14 @@
+$primary-color: red;
+$_bgColor: #c6538c;
+
+body {
+  background-color: $_bgColor;
+}
+
+@mixin color {
+  color: desaturate($primary-color, 10%);
+}
+.container {
+  height: 200px;
+  border: 1px solid;
+}

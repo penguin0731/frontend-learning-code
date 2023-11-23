@@ -1,0 +1,22 @@
+@use './base.scss' as basedModule;
+
+$primary-color: #4caf50;
+$pd: 10px;
+// error
+// $padding: 2px * $pd;
+// success
+$padding: 2 * $pd;
+$fontSize: 14px 16px 18px 20px 22px 24px;
+
+.container {
+  height: 400px;
+  background-color: $primary-color;
+  // padding: 20px;
+  padding: $padding;
+
+  .title {
+    // background-color: $_bgColor; // 报错，$_bgColor是私有变量
+    font-size: nth($fontSize, 1); // 14px
+    @include basedModule.color;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "complie": "sass --watch styles/index.scss dist/css/index.css",
+    "complie-dir": "sass --watch styles/:dist/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}
